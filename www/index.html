@@ -10,6 +10,10 @@
 
 	<script src="lungo/quo.js"></script>
 	<script src="lungo/lungo.js"></script>
+
+    <style>
+        img{max-width: 100%}
+    </style>
 </head>
 <body>
 
@@ -73,8 +77,108 @@
         </ul>
     </article><!-- noticias -->
 
-    <article id="article_guias">
-    	
+    <article id="article_guias" class="list indented scroll">
+
+        <ul>
+            <li class="big">
+                <img src="img/guias/guias.jpg">
+            </li>
+
+            <li>Los guías donan su tiempo a Rueda Verde, y trabajan en pro de tu seguridad. Conócelos.</li>
+
+            <li class="thumb big">
+                <img src="img/guias/andrea.jpg" />
+                <div>
+                    <strong>Andrea</strong>
+                </div>
+            </li>
+
+            <li class="thumb big">
+                <img src="img/guias/luisfelipe.jpg" />
+                <div>
+                    <strong>Luis Felipe</strong>
+                </div>
+            </li>
+
+            <li class="thumb big">
+                <img src="img/guias/julio.jpg" />
+                <div>
+                    <strong>Julio Morales</strong>
+                </div>
+            </li>
+
+            <li class="thumb big">
+                <img src="img/guias/dania.jpg" />
+                <div>
+                    <strong>Dania</strong>
+                </div>
+            </li>
+
+            <li class="thumb big">
+                <img src="img/guias/edd.jpg" />
+                <div>
+                    <strong>Edd</strong>
+                </div>
+            </li>
+
+            <li class="thumb big">
+                <img src="img/guias/fatho.jpg" />
+                <div>
+                    <strong>Fatho</strong>
+                </div>
+            </li>
+
+            <li class="thumb big">
+                <img src="img/guias/Raquel.jpg" />
+                <div>
+                    <strong>Raquel</strong>
+                </div>
+            </li>
+
+            <li class="thumb big">
+                <img src="img/guias/suzie.jpg" />
+                <div>
+                    <strong>Suzie</strong>
+                </div>
+            </li>
+
+            <li class="thumb big">
+                <img src="img/guias/roberto.jpg" />
+                <div>
+                    <strong>Roberto</strong>
+                </div>
+            </li>
+
+            <li class="thumb big">
+                <img src="img/guias/rudy.jpg" />
+                <div>
+                    <strong>Rudy</strong>
+                </div>
+            </li>
+
+            <li class="thumb big">
+                <img src="img/guias/tannia.jpg" />
+                <div>
+                    <strong>Tannia</strong>
+                </div>
+            </li>
+
+            <li class="thumb big">
+                <img src="img/guias/gustavo.jpg" />
+                <div>
+                    <strong>Gustavo</strong>
+                </div>
+            </li>
+
+            <li class="thumb big">
+                <img src="img/guias/cesar.jpg" />
+                <div>
+                    <strong>Cesar</strong>
+                </div>
+            </li>
+        <br><br>
+        </ul>
+
     </article><!-- guias -->
 
 </section>
@@ -83,12 +187,11 @@
 	Lungo.init({});
 
 var pull_eventos = new Lungo.Element.Pull('#article_eventos', {
-    onPull: "Pull down to refresh",      //Text on pulling
-    onRelease: "Release to get new data",//Text on releasing
-    onRefresh: "Refreshing...",          //Text on refreshing
+    onPull: "Desliza hacia abajo para actualizar",      //Text on pulling
+    onRelease: "Suelta para actualizar",//Text on releasing
+    onRefresh: "Actualizando...",          //Text on refreshing
     callback: function() {               //Action on refresh
-        alert("Pull & Refresh completed!");
-        pull_example.hide();
+        pull_eventos.hide();
     }
 });
 </script>

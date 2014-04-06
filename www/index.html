@@ -27,9 +27,13 @@
         <nav>
             <a href="#" data-view-menu="options" data-icon="menu"></a>
         </nav>
+
+        <!--
         <nav class="on-right">
             <button data-view-aside="features" data-icon="comment"></button>
         </nav>
+        -->
+        
     </header>
 
     <nav id="options" data-control="menu" class="icons">
@@ -211,7 +215,7 @@
                 $$('#showEventos').html('');
                 for(i=0;i<calendar.length;i++) {
                     var fecha = calendar[i].custom_fields.fecha[0].slice(6,8) + ' - ' + calendar[i].custom_fields.fecha[0].slice(4,6) + ' - ' + calendar[i].custom_fields.fecha[0].slice(0,4);
-                    $$('#showEventos').prepend('<li><strong>' + calendar[i].title + ' [' + fecha + ']</strong><small>' + calendar[i].custom_fields.descripcion[0] + '<small></li>');
+                    $$('#showEventos').prepend('<li><strong class="text bold">' + calendar[i].title + '</strong><span class="text tiny">' + fecha + '</span><small>' + calendar[i].custom_fields.descripcion[0] + '<small></li>');
                 }
                 pull_eventos.hide();
             }
@@ -229,7 +233,7 @@
 
                 
                 for(i=0;i<noticias.length;i++) {
-                    $$('#showNoticias').prepend('<li><strong>' + noticias[i].title + '</strong>' + noticias[i].custom_fields.texto[0]+ '<br><br><img src="' + noticias[i].thumbnail + '">');
+                    $$('#showNoticias').prepend('<li><strong class="text bold">' + noticias[i].title + '</strong><span class="text tiny">' + noticias[i].custom_fields.texto[0]+ '</span><br><img src="' + noticias[i].thumbnail + '">');
                 }
                 
 

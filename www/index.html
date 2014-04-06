@@ -188,8 +188,8 @@
 
 <script type="text/javascript" src="phonegap.js"></script>
 <script>
-document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady() {
+//document.addEventListener("deviceready", onDeviceReady, false);
+//function onDeviceReady() {
 
 	Lungo.init({});
 
@@ -214,14 +214,25 @@ function onDeviceReady() {
     });
 
     var calendar = "";
+    var ev = [];
     var updateCalendar = function() {
         var getCalendar = $$.json('http://javierbyte.com/app/ruedaverde/api/get_recent_posts/', {post_type:"evento"},
             function(){
                 calendar = JSON.parse(getCalendar.response).posts;
                 $$('#showEventos').html('<li class="anchor contrast">Da clic en un evento para agregarlo al calendario</li>');
                 for(i=0;i<calendar.length;i++) {
-                    var fecha = calendar[i].custom_fields.fecha[0].slice(6,8) + ' - ' + calendar[i].custom_fields.fecha[0].slice(4,6) + ' - ' + calendar[i].custom_fields.fecha[0].slice(0,4);
-                    $$('#showEventos').prepend('<li id="evento' + i + '"><strong class="text bold">' + calendar[i].title + '</strong><span class="text tiny">' + fecha + ' - ' + calendar[i].custom_fields.hora[0] + ':00</span><small>' + calendar[i].custom_fields.descripcion[0] + '<small></li>');
+
+                    ev[i] = new Object();
+                    ev[i].year = parseInt(calendar[i].custom_fields.fecha[0].slice(0,4),10);
+                    ev[i].day = parseInt(calendar[i].custom_fields.fecha[0].slice(6,8),10);
+                    ev[i].month = parseInt(calendar[i].custom_fields.fecha[0].slice(4,6),10);
+                    ev[i].hour = parseInt(calendar[i].custom_fields.hora[0],10);
+                    ev[i].description = calendar[i].custom_fields.descripcion[0];
+                    ev[i].place = calendar[i].custom_fields.lugar[0];
+                    ev[i].title =  calendar[i].title;
+
+                    var fecha = ev[i].day + ' - ' + ev[i].month + ' - ' + ev[i].year;
+                    $$('#showEventos').prepend('<li class="evento" data-evid="' + i + '"><strong class="text bold">' + ev[i].title + '</strong><span class="text tiny">' + fecha + ' - ' + ev[i].hour + ':00</span><small>' + ev[i].description + '<small></li>');
                 }
                 pull_eventos.hide();
             }
@@ -242,14 +253,26 @@ function onDeviceReady() {
         );
     };
 
+    $$('.evento').tap(function(){
+        var evid = $$(this).data('evid');
+        var startDate = new Date(ev[i].year,ev[i].month-1,ev[i].day,ev[i].hour,0,0,0,0); // beware: month 0 = january, 11 = december
+        var endDate = new Date(ev[i].year,ev[i].month-1,ev[i].day,ev[i].hour+2,0,0,0,0);
+        var title = ev[i].title;
+        var location = ev[i].place;
+        var notes = "";
+        var success = function(message) { alert("Success: " + JSON.stringify(message)); };
+        var error = function(message) { alert("Error: " + message); };
+
+        window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,success,error);
+    });
+
     $$('#facebookShare').tap(function(){
         window.plugins.socialsharing.shareViaFacebook('Prueba la nueva aplicación de rueda verde en http://www.ruedaverde.org', null, null, console.log('share ok'), function(errormsg){alert(errormsg)})
     });
 
     updateCalendar();
     updateNoticias();
-
-}
+//}
 </script>
 </body>
 </html>

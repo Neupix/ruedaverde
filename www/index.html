@@ -13,40 +13,84 @@
 </head>
 <body>
 
-<section id="main_section" data-aside="features">
+<section id="main_section" class="show" data-tansition="slide" data-pull="normal">
 
     <header data-title="Rueda Verde">
         <nav>
-            <button data-view-aside="features" data-icon="menu"></button>
+            <a href="#" data-view-menu="options" data-icon="menu"></a>
+        </nav>
+        <nav class="on-right">
+            <button data-view-aside="features" data-icon="comment"></button>
         </nav>
     </header>
 
-    <article id="article_home" class="active indented">
-    	
+    <nav id="options" data-control="menu" class="icons">
+        <a href="#" data-title="Rueda Verde" data-view-article="article_home" data-icon="home" class="active">Inicio</a>
+        <a href="#" data-title="Eventos" data-view-article="article_eventos" data-icon="calendar">Eventos</a>
+        <a href="#" data-title="Noticias" data-view-article="article_noticias" data-icon="bullhorn">Noticias</a>
+        <a href="#" data-title="Guías" data-view-article="article_guias" data-icon="group">Guías</a>
+    </nav>
+
+    <article id="article_home" class="active list scroll indented">
+            <ul>
+                <li class="dark">
+                    A framework for developers who want to design, build and share cross device apps.
+                </li>
+                <li class="feature">
+                    <strong>HTML5 Optimized Apps</strong>
+                    Lungo Framework supports open web standards, such as HTML5, CSS3 and JavaScript. It brings consistent browser environment across mobiles, tvs and desktop devices.
+                </li>
+                <li class="feature">
+                    <strong>Open Source Project</strong>
+                    Each new line of code in Lungo is welcome, we hope that Developers and restless minds help us to improve day by day this humble project.
+                </li>
+                <li class="feature">
+                    <strong>Powerfull JavaScript API</strong>
+                    Each new line of code in Lungo is welcome, we hope that Developers and restless minds help us to improve day by day this humble project.
+                </li>
+                <li class="feature">
+                    <strong>Multi-Device full support</strong>
+                    Is known that create apps for each platform is expensive, this situation is increased by the arrival of tablets and SmartTVs. Lungo will suit all of them creating a unique and amazing UX.
+                </li>
+            </ul>
     </article><!-- home -->
 
-    <article id="article_eventos">
-    	
+    <article id="article_eventos" class="list indented scroll">
+    	<ul>
+            <li class="dark">
+                <strong>No hay eventos registrados</strong>
+                <small>Desplaza hacia abajo para actualizar</small>          
+            </li>  
+        </ul>
     </article><!-- eventos -->
 
-    <article id="article_noticias">
-    	
+    <article id="article_noticias" class="list indented scroll">
+    	<ul>
+            <li>
+                <strong>No hay noticias registradas</strong>
+                <small>Desplaza hacia abajo para actualizar</small>
+            </li>
+        </ul>
     </article><!-- noticias -->
 
     <article id="article_guias">
     	
     </article><!-- guias -->
-</section>
 
-<aside id="features">
-    <header data-title="Options"></header>
-    <article class="active">
-        <a href="#">asd</a>
-    </article>
-</aside>
+</section>
 
 <script>
 	Lungo.init({});
+
+var pull_eventos = new Lungo.Element.Pull('#article_eventos', {
+    onPull: "Pull down to refresh",      //Text on pulling
+    onRelease: "Release to get new data",//Text on releasing
+    onRefresh: "Refreshing...",          //Text on refreshing
+    callback: function() {               //Action on refresh
+        alert("Pull & Refresh completed!");
+        pull_example.hide();
+    }
+});
 </script>
 </body>
 </html>

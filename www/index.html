@@ -13,10 +13,15 @@
 </head>
 <body>
 
-<section id="main">
-    <header data-title="Reda Verde"></header>
+<section id="main_section" data-aside="features">
 
-    <article id="article_home" class="active">
+    <header data-title="Rueda Verde">
+        <nav>
+            <button data-view-aside="features" data-icon="menu"></button>
+        </nav>
+    </header>
+
+    <article id="article_home" class="active indented">
     	
     </article><!-- home -->
 
@@ -31,16 +36,14 @@
     <article id="article_guias">
     	
     </article><!-- guias -->
-
-    <footer>
-        <nav>
-            <a href="#" data-title="Rueda Verde" data-view-article="article_home" data-icon="home"></a>
-            <a href="#" data-title="Eventos" data-view-article="article_eventos" data-icon="calendar"></a>
-            <a href="#" data-title="Noticias" data-view-article="article_noticias" data-icon="bullhorn"></a>
-            <a href="#" data-title="Guías" data-view-article="article_guias" data-icon="group"></a>
-        </nav>
-    </footer>
 </section>
+
+<aside id="features">
+    <header data-title="Options"></header>
+    <article class="active">
+        <a href="#">asd</a>
+    </article>
+</aside>
 
 <script>
 	Lungo.init({});

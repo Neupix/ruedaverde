@@ -254,13 +254,13 @@
     };
 
     $$('.evento').tap(function(){
-        var evid = $$(this).data('evid');
+        var i = $$(this).data('evid');
         var startDate = new Date(ev[i].year,ev[i].month-1,ev[i].day,ev[i].hour,0,0,0,0); // beware: month 0 = january, 11 = december
         var endDate = new Date(ev[i].year,ev[i].month-1,ev[i].day,ev[i].hour+2,0,0,0,0);
         var title = ev[i].title;
         var location = ev[i].place;
         var notes = "";
-        var success = function(message) { alert("Success: " + JSON.stringify(message)); };
+        var success = function(message) { alert("Agregaste el evento a tu calendario, ¡te esperamos!"); };
         var error = function(message) { alert("Error: " + message); };
 
         window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,success,error);

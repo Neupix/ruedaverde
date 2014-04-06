@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Lungo test</title>
+	<title>Rueda Verde</title>
 
 	<link rel="stylesheet" href="lungo/lungo.css">
 	<link rel="stylesheet" href="lungo/lungo.icon.css">
@@ -33,7 +33,7 @@
             <button data-view-aside="features" data-icon="comment"></button>
         </nav>
         -->
-        
+
     </header>
 
     <nav id="options" data-control="menu" class="icons">
@@ -56,6 +56,8 @@
                 <li data-icon="group" data-view-article="article_guias" data-title="Guías">
                     <strong>Conocer a los guías</strong>
                 </li>
+
+                <button id="facebookShare" class="anchor margin-bottom" data-icon="facebook" data-label="Compartir en facebook"></button>
 
             </ul>
     </article><!-- home -->
@@ -207,15 +209,15 @@
         }
     });
 
+    var calendar = "";
     var updateCalendar = function() {
-        var calendar = "";
         var getCalendar = $$.json('http://javierbyte.com/app/ruedaverde/api/get_recent_posts/', {post_type:"evento"},
             function(){
                 calendar = JSON.parse(getCalendar.response).posts;
-                $$('#showEventos').html('');
+                $$('#showEventos').html('<li class="anchor contrast">Da clic en un evento para agregarlo al calendario</li>');
                 for(i=0;i<calendar.length;i++) {
                     var fecha = calendar[i].custom_fields.fecha[0].slice(6,8) + ' - ' + calendar[i].custom_fields.fecha[0].slice(4,6) + ' - ' + calendar[i].custom_fields.fecha[0].slice(0,4);
-                    $$('#showEventos').prepend('<li><strong class="text bold">' + calendar[i].title + '</strong><span class="text tiny">' + fecha + '</span><small>' + calendar[i].custom_fields.descripcion[0] + '<small></li>');
+                    $$('#showEventos').prepend('<li id="evento' + i + '"><strong class="text bold">' + calendar[i].title + '</strong><span class="text tiny">' + fecha + ' - ' + calendar[i].custom_fields.hora[0] + ':00</span><small>' + calendar[i].custom_fields.descripcion[0] + '<small></li>');
                 }
                 pull_eventos.hide();
             }
@@ -227,20 +229,18 @@
         var getNoticias = $$.json('http://javierbyte.com/app/ruedaverde/api/get_recent_posts/', {post_type:"post"},
             function(){
                 noticias = JSON.parse(getNoticias.response).posts;
-                $$('#showNoticias').html('');
-
-                console.log(noticias);
-
-                
+                $$('#showNoticias').html('');                
                 for(i=0;i<noticias.length;i++) {
                     $$('#showNoticias').prepend('<li><strong class="text bold">' + noticias[i].title + '</strong><span class="text tiny">' + noticias[i].custom_fields.texto[0]+ '</span><br><img src="' + noticias[i].thumbnail + '">');
                 }
-                
-
                 pull_noticias.hide();
             }
         );
     };
+
+    $$('#facebookShare').click(function(){
+        window.plugins.socialsharing.share('Prueba la nueva aplicación de rueda verde en tu android!', null, null, 'http://www.ruedaverde.org');
+    });
 
     updateCalendar();
     updateNoticias();

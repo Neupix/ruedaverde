@@ -57,8 +57,8 @@
     </article><!-- home -->
 
     <article id="article_eventos" class="list indented scroll">
-    	<ul>
-            <li class="dark">
+    	<ul id="showEventos">
+            <li>
                 <strong>No hay eventos registrados</strong>
                 <small>Desplaza hacia abajo para actualizar</small>          
             </li>  
@@ -188,27 +188,28 @@
         onRelease: "Suelta para actualizar",//Text on releasing
         onRefresh: "Actualizando...",          //Text on refreshing
         callback: function() {               //Action on refresh
-            pull_eventos.hide();
+            updateCalendar();
+            
         }
     });
 
-    var calendar = "";
-    var getCalendar = $$.json('http://javierbyte.com/app/ruedaverde/api/get_recent_posts/?post_type=evento', {},
-        function(){
-            calendar = JSON.parse(getCalendar.response).feed.entry;
-            alert(calendar);
-
-/*
-            for(i=0;i<calendar.length;i++) {
-                console.log( calendar[i].summary.$t );
-            }
-            */
-        }
-    );
-
     var updateCalendar = function() {
-    }();
+        var calendar = "";
+        var getCalendar = $$.json('http://javierbyte.com/app/ruedaverde/api/get_recent_posts/', {post_type:"evento"},
+            function(){
+                calendar = JSON.parse(getCalendar.response).posts;
+                $$('#showEventos').html('');
+                for(i=0;i<calendar.length;i++) {
+                    var fecha = calendar[i].custom_fields.fecha[0].slice(6,8) + ' - ' + calendar[i].custom_fields.fecha[0].slice(4,6) + ' - ' + calendar[i].custom_fields.fecha[0].slice(0,4);
+                    $$('#showEventos').prepend('<li><strong>' + calendar[i].title + ' [' + fecha + ']</strong><small>' + calendar[i].custom_fields.descripcion[0] + '<small></li>');
+                }
+                pull_eventos.hide();
+            }
+        );
+    };
 
+    updateCalendar();
+    
 </script>
 </body>
 </html>

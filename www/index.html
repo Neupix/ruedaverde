@@ -41,25 +41,18 @@
 
     <article id="article_home" class="active list scroll indented">
             <ul>
-                <li class="dark">
-                    A framework for developers who want to design, build and share cross device apps.
+                <li data-icon="calendar" data-view-article="article_eventos" data-title="Eventos">
+                    <strong>Ver eventos</strong>
                 </li>
-                <li class="feature">
-                    <strong>HTML5 Optimized Apps</strong>
-                    Lungo Framework supports open web standards, such as HTML5, CSS3 and JavaScript. It brings consistent browser environment across mobiles, tvs and desktop devices.
+
+                <li data-icon="bullhorn" data-view-article="article_noticias" data-title="Noticias">
+                    <strong>Ver noticias</strong>
                 </li>
-                <li class="feature">
-                    <strong>Open Source Project</strong>
-                    Each new line of code in Lungo is welcome, we hope that Developers and restless minds help us to improve day by day this humble project.
+
+                <li data-icon="group" data-view-article="article_guias" data-title="Guías">
+                    <strong>Conocer a los guías</strong>
                 </li>
-                <li class="feature">
-                    <strong>Powerfull JavaScript API</strong>
-                    Each new line of code in Lungo is welcome, we hope that Developers and restless minds help us to improve day by day this humble project.
-                </li>
-                <li class="feature">
-                    <strong>Multi-Device full support</strong>
-                    Is known that create apps for each platform is expensive, this situation is increased by the arrival of tablets and SmartTVs. Lungo will suit all of them creating a unique and amazing UX.
-                </li>
+
             </ul>
     </article><!-- home -->
 
@@ -190,14 +183,32 @@
 <script>
 	Lungo.init({});
 
-var pull_eventos = new Lungo.Element.Pull('#article_eventos', {
-    onPull: "Desliza hacia abajo para actualizar",      //Text on pulling
-    onRelease: "Suelta para actualizar",//Text on releasing
-    onRefresh: "Actualizando...",          //Text on refreshing
-    callback: function() {               //Action on refresh
-        pull_eventos.hide();
-    }
-});
+    var pull_eventos = new Lungo.Element.Pull('#article_eventos', {
+        onPull: "Desliza hacia abajo para actualizar",      //Text on pulling
+        onRelease: "Suelta para actualizar",//Text on releasing
+        onRefresh: "Actualizando...",          //Text on refreshing
+        callback: function() {               //Action on refresh
+            pull_eventos.hide();
+        }
+    });
+
+    var calendar = "";
+    var getCalendar = $$.json('http://javierbyte.com/app/ruedaverde/api/get_recent_posts/?post_type=evento', {},
+        function(){
+            calendar = JSON.parse(getCalendar.response).feed.entry;
+            alert(calendar);
+
+/*
+            for(i=0;i<calendar.length;i++) {
+                console.log( calendar[i].summary.$t );
+            }
+            */
+        }
+    );
+
+    var updateCalendar = function() {
+    }();
+
 </script>
 </body>
 </html>

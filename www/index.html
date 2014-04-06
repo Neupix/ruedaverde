@@ -66,7 +66,7 @@
     </article><!-- eventos -->
 
     <article id="article_noticias" class="list indented scroll">
-    	<ul>
+    	<ul id="showNoticias">
             <li>
                 <strong>No hay noticias registradas</strong>
                 <small>Desplaza hacia abajo para actualizar</small>
@@ -193,6 +193,16 @@
         }
     });
 
+    var pull_noticias = new Lungo.Element.Pull('#article_noticias', {
+        onPull: "Desliza hacia abajo para actualizar",      //Text on pulling
+        onRelease: "Suelta para actualizar",//Text on releasing
+        onRefresh: "Actualizando...",          //Text on refreshing
+        callback: function() {               //Action on refresh
+            updateNoticias();
+            
+        }
+    });
+
     var updateCalendar = function() {
         var calendar = "";
         var getCalendar = $$.json('http://javierbyte.com/app/ruedaverde/api/get_recent_posts/', {post_type:"evento"},
@@ -208,8 +218,29 @@
         );
     };
 
+    var updateNoticias = function() {
+        var noticias = "";
+        var getNoticias = $$.json('http://javierbyte.com/app/ruedaverde/api/get_recent_posts/', {post_type:"post"},
+            function(){
+                noticias = JSON.parse(getNoticias.response).posts;
+                $$('#showNoticias').html('');
+
+                console.log(noticias);
+
+                
+                for(i=0;i<noticias.length;i++) {
+                    $$('#showNoticias').prepend('<li><strong>' + noticias[i].title + '</strong>' + noticias[i].custom_fields.texto[0]+ '<br><br><img src="' + noticias[i].thumbnail + '">');
+                }
+                
+
+                pull_noticias.hide();
+            }
+        );
+    };
+
     updateCalendar();
-    
+    updateNoticias();
+
 </script>
 </body>
 </html>

@@ -247,7 +247,7 @@
 
                     //adding the google map
                     if(ev[i].route != "") {
-                        bufferEventos += '<img src="http://maps.googleapis.com/maps/api/staticmap?size=480x320&path=weight:5%7Ccolor:0x000000%7Cenc:' + ev[i].route+ '&sensor=true"/></li>';
+                        bufferEventos += '<a href="http://maps.googleapis.com/maps/api/staticmap?scale=2&size=640x640&path=weight:5%7Ccolor:0x000000%7Cenc:' + ev[i].route + '&sensor=true"><img src="http://maps.googleapis.com/maps/api/staticmap?size=480x320&path=weight:5%7Ccolor:0x000000%7Cenc:' + ev[i].route + '&sensor=true"/></a></li>';
                     } else {
                         bufferEventos += '</li>';
                     }

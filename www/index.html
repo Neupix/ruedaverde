@@ -283,9 +283,9 @@
         var success = function(message) { alert("Evento agregado con éxito a tu calendario, ¡te esperamos!"); };
         var error = function(message) { alert("Error: " + message); };
 
-        window.plugins.calendar.findEvent(title,location,notes,startDate,endDate,function() {
+        window.plugins.calendar.findEvent(title,location,notes,startDate,endDate,function(message) {
             alert(message);
-        },function() {
+        },function(message) {
             alert('no esta!');
         });
 

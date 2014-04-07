@@ -284,12 +284,12 @@
         var error = function(message) { alert("Error: " + message); };
 
         window.plugins.calendar.findEvent(title,location,notes,startDate,endDate,function(message) {
-            alert(message);
-        },function(message) {
-            alert('no esta!');
-        });
-
-        window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,success,error);
+            if(message) {
+                alert('Ya agregaste el evento al calendario, ¡gracias!');
+            } else {
+                window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,success,error);
+            }
+        },error);
 
     });
 

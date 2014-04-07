@@ -284,7 +284,7 @@
         var error = function(message) { alert("Error: " + message); };
 
         window.plugins.calendar.findEvent(title,location,notes,startDate,endDate,function() {
-            alert('ya esta!');
+            alert(message);
         },function() {
             alert('no esta!');
         });

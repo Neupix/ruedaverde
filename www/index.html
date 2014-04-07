@@ -239,7 +239,6 @@
                     ev[i].description = calendar[i].custom_fields.descripcion[0];
                     ev[i].place = calendar[i].custom_fields.lugar[0];
                     ev[i].title =  calendar[i].title;
-                    ev[i].added = 0;
                     ev[i].route = calendar[i].custom_fields.ruta[0];
 
                     var fecha = ev[i].day + ' - ' + ev[i].month + ' - ' + ev[i].year;
@@ -284,12 +283,14 @@
         var success = function(message) { alert("Evento agregado con éxito a tu calendario, ¡te esperamos!"); };
         var error = function(message) { alert("Error: " + message); };
 
-        if(ev[i].added == 0) {
-            window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,success,error);
-            ev[i].added = 1;
-        } else {
-            alert('Ya agregaste este evento, ¡gracias!');
-        }
+        window.plugins.calendar.findEvent(title,location,notes,startDate,endDate,function() {
+            alert('ya esta!');
+        },function() {
+            alert('no esta!');
+        });
+
+        window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,success,error);
+
     });
 
     $$('#facebookShare').tap(function(){

@@ -228,7 +228,7 @@
         var getCalendar = $$.json('http://javierbyte.com/app/ruedaverde/api/get_recent_posts/', {post_type:"evento"},
             function(){
                 calendar = JSON.parse(getCalendar.response).posts;
-                $$('#showEventos').html('');
+                var bufferEventos = "";
                 for(i=0;i<calendar.length;i++) {
 
                     ev[i] = new Object();
@@ -240,10 +240,19 @@
                     ev[i].place = calendar[i].custom_fields.lugar[0];
                     ev[i].title =  calendar[i].title;
                     ev[i].added = 0;
+                    ev[i].route = calendar[i].custom_fields.ruta[0];
 
                     var fecha = ev[i].day + ' - ' + ev[i].month + ' - ' + ev[i].year;
-                    $$('#showEventos').append('<li class="evento"><a href="#" data-evid="' + i + '" class="addMap button on-right" data-label="Agregar al calendario"><abbr>Agregar al calendario</abbr></a><strong class="text bold">' + ev[i].title + '</strong><span class="text tiny">' + fecha + ' - ' + ev[i].hour + ':00</span><small>' + ev[i].description + '</small></li>');
+                    bufferEventos += '<li class="evento"><a href="#" data-evid="' + i + '" class="addMap button on-right" data-label="Agregar al calendario"><abbr>Agregar al calendario</abbr></a><strong class="text bold">' + ev[i].title + '</strong><span class="text tiny">' + fecha + ' - ' + ev[i].hour + ':00</span><small>' + ev[i].description + '</small>';
+
+                    //adding the google map
+                    if(ev[i].route != "") {
+                        bufferEventos += '<img src="http://maps.googleapis.com/maps/api/staticmap?size=480x320&path=weight:5%7Ccolor:black%7Cenc:' + ev[i].route+ '&sensor=true"/></li>';
+                    } else {
+                        bufferEventos += '</li>';
+                    }
                 }
+                $$('#showEventos').html(bufferEventos);
                 pull_eventos.hide();
             }
         );
@@ -254,10 +263,12 @@
         var getNoticias = $$.json('http://javierbyte.com/app/ruedaverde/api/get_recent_posts/', {post_type:"post"},
             function(){
                 noticias = JSON.parse(getNoticias.response).posts;
-                $$('#showNoticias').html('');                
+                
+                var bufferNoticias = "";          
                 for(i=0;i<noticias.length;i++) {
-                    $$('#showNoticias').prepend('<li><strong class="text bold">' + noticias[i].title + '</strong><span class="text tiny">' + noticias[i].custom_fields.texto[0]+ '</span><br><img src="' + noticias[i].thumbnail + '">');
+                    bufferNoticias += '<li><strong class="text bold">' + noticias[i].title + '</strong><span class="text tiny">' + noticias[i].custom_fields.texto[0]+ '</span><br><img src="' + noticias[i].thumbnail + '">';
                 }
+                $$('#showNoticias').html(bufferNoticias);
                 pull_noticias.hide();
             }
         );
@@ -272,7 +283,7 @@
         var notes = "";
         var success = function(message) { alert("Evento agregado con éxito a tu calendario, ¡te esperamos!"); };
         var error = function(message) { alert("Error: " + message); };
-        
+
         if(ev[i].added == 0) window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,success,error);
         ev[i].added = 1;
     });

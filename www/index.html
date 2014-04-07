@@ -247,7 +247,7 @@
 
                     //adding the google map
                     if(ev[i].route != "") {
-                        bufferEventos += '<img src="http://maps.googleapis.com/maps/api/staticmap?size=480x320&path=weight:5%7Ccolor:black%7Cenc:' + ev[i].route+ '&sensor=true"/></li>';
+                        bufferEventos += '<img src="http://maps.googleapis.com/maps/api/staticmap?size=480x320&path=weight:5%7Ccolor:0x000000%7Cenc:' + ev[i].route+ '&sensor=true"/></li>';
                     } else {
                         bufferEventos += '</li>';
                     }
@@ -284,8 +284,12 @@
         var success = function(message) { alert("Evento agregado con éxito a tu calendario, ¡te esperamos!"); };
         var error = function(message) { alert("Error: " + message); };
 
-        if(ev[i].added == 0) window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,success,error);
-        ev[i].added = 1;
+        if(ev[i].added == 0) {
+            window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,success,error);
+            ev[i].added = 1;
+        } else {
+            alert('Ya agregaste este evento, ¡gracias!');
+        }
     });
 
     $$('#facebookShare').tap(function(){

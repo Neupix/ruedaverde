@@ -39,11 +39,6 @@
         <a href="#" data-title="Eventos" data-view-article="article_eventos" data-icon="calendar">Eventos</a>
         <a href="#" data-title="Noticias" data-view-article="article_noticias" data-icon="bullhorn">Noticias</a>
         <a href="#" data-title="Guías" data-view-article="article_guias" data-icon="group">Guías</a>
-
-        <a href="#" data-title="Rueda Verde" data-view-article="article_home" data-icon="home" class="active">Inicio</a>
-        <a href="#" data-title="Eventos" data-view-article="article_eventos" data-icon="calendar">Eventos</a>
-        <a href="#" data-title="Noticias" data-view-article="article_noticias" data-icon="bullhorn">Noticias</a>
-        <a href="#" data-title="Guías" data-view-article="article_guias" data-icon="group">Guías</a>
     </nav>
 
     <article id="article_home" class="active list scroll indented">
@@ -247,7 +242,7 @@
                     ev[i].added = 0;
 
                     var fecha = ev[i].day + ' - ' + ev[i].month + ' - ' + ev[i].year;
-                    $$('#showEventos').prepend('<li class="evento"><a href="#" data-evid="' + i + '" class="addMap button red on-right" data-label="Agregar al calendario"><abbr>Agregar al calendario</abbr></a><strong class="text bold">' + ev[i].title + '</strong><span class="text tiny">' + fecha + ' - ' + ev[i].hour + ':00</span><small>' + ev[i].description + '</small></li>');
+                    $$('#showEventos').append('<li class="evento"><a href="#" data-evid="' + i + '" class="addMap button on-right" data-label="Agregar al calendario"><abbr>Agregar al calendario</abbr></a><strong class="text bold">' + ev[i].title + '</strong><span class="text tiny">' + fecha + ' - ' + ev[i].hour + ':00</span><small>' + ev[i].description + '</small></li>');
                 }
                 pull_eventos.hide();
             }

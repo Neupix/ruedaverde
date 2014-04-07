@@ -17,15 +17,16 @@
 
         .d6{width:50%;float:left;}
         .c{clear:both;display:block;height: 0;width: 0;font-size:0;opacity: 0;}
+
     </style>
 </head>
 <body>
 
-<section id="main_section" data-tansition="slide" data-pull="normal">
+<section id="main_section" data-tansition="slide" data-pull="normal" data-aside="menu">
 
     <header data-title="Rueda Verde">
         <nav>
-            <a href="#" data-view-menu="options" data-icon="menu"></a>
+            <button data-view-aside="menu" data-icon="menu"></button>
         </nav>
 
         <nav class="on-right">
@@ -34,12 +35,14 @@
 
     </header>
 
+    <!--
     <nav id="options" data-control="menu" class="icons">
         <a href="#" data-title="Rueda Verde" data-view-article="article_home" data-icon="home" class="active">Inicio</a>
         <a href="#" data-title="Eventos" data-view-article="article_eventos" data-icon="calendar">Eventos</a>
         <a href="#" data-title="Noticias" data-view-article="article_noticias" data-icon="bullhorn">Noticias</a>
         <a href="#" data-title="Guías" data-view-article="article_guias" data-icon="group">Guías</a>
     </nav>
+    -->
 
     <article id="article_home" class="active list scroll indented">
             <ul>
@@ -190,6 +193,31 @@
     </article><!-- guias -->
 
 </section><!-- main-section-->
+
+<aside id="menu" data-transition="left">
+    <header data-title="Menú"></header>
+    
+    <article class="list active">
+        <ul>
+
+            <li data-title="Inicio" data-view-article="article_home" data-icon="home">
+                <strong>Inicio</strong>
+            </li>
+
+            <li data-title="Eventos" data-view-article="article_eventos" data-icon="calendar">
+                <strong>Eventos</strong>
+            </li>
+
+            <li data-title="Noticias" data-view-article="article_noticias" data-icon="bullhorn">
+                <strong>Noticias</strong>
+            </li>
+
+            <li data-title="Guías" data-view-article="article_guias" data-icon="group">
+                <strong>Guías</strong>
+            </li>
+        </ul>
+    </article>
+</aside>
 
 <script src="lungo/quo.js"></script>
 <script src="lungo/lungo.js"></script>

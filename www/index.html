@@ -121,6 +121,7 @@
                 <img src="img/guias/andrea.jpg" />
                 <div>
                     <strong>Andrea</strong>
+                    <small>Aquí puede ir algun texto.</small>
                 </div>
             </li>
 
@@ -128,6 +129,7 @@
                 <img src="img/guias/luisfelipe.jpg" />
                 <div>
                     <strong>Luis Felipe</strong>
+                    <small>Aquí puede ir algun texto.</small>
                 </div>
             </li>
 
@@ -135,6 +137,7 @@
                 <img src="img/guias/julio.jpg" />
                 <div>
                     <strong>Julio Morales</strong>
+                    <small>Aquí puede ir algun texto.</small>
                 </div>
             </li>
 
@@ -142,6 +145,7 @@
                 <img src="img/guias/dania.jpg" />
                 <div>
                     <strong>Dania</strong>
+                    <small>Aquí puede ir algun texto.</small>
                 </div>
             </li>
 
@@ -149,6 +153,7 @@
                 <img src="img/guias/edd.jpg" />
                 <div>
                     <strong>Edd</strong>
+                    <small>Aquí puede ir algun texto.</small>
                 </div>
             </li>
 
@@ -156,6 +161,7 @@
                 <img src="img/guias/fatho.jpg" />
                 <div>
                     <strong>Fatho</strong>
+                    <small>Aquí puede ir algun texto.</small>
                 </div>
             </li>
 
@@ -163,6 +169,7 @@
                 <img src="img/guias/raquel.jpg" />
                 <div>
                     <strong>Raquel</strong>
+                    <small>Aquí puede ir algun texto.</small>
                 </div>
             </li>
 
@@ -170,6 +177,7 @@
                 <img src="img/guias/suzie.jpg" />
                 <div>
                     <strong>Suzie</strong>
+                    <small>Aquí puede ir algun texto.</small>
                 </div>
             </li>
 
@@ -177,6 +185,7 @@
                 <img src="img/guias/roberto.jpg" />
                 <div>
                     <strong>Roberto</strong>
+                    <small>Aquí puede ir algun texto.</small>
                 </div>
             </li>
 
@@ -184,6 +193,7 @@
                 <img src="img/guias/rudy.jpg" />
                 <div>
                     <strong>Rudy</strong>
+                    <small>Aquí puede ir algun texto.</small>
                 </div>
             </li>
 
@@ -191,6 +201,7 @@
                 <img src="img/guias/tannia.jpg" />
                 <div>
                     <strong>Tannia</strong>
+                    <small>Aquí puede ir algun texto.</small>
                 </div>
             </li>
 
@@ -198,6 +209,7 @@
                 <img src="img/guias/gustavo.jpg" />
                 <div>
                     <strong>Gustavo</strong>
+                    <small>Aquí puede ir algun texto.</small>
                 </div>
             </li>
 
@@ -205,6 +217,7 @@
                 <img src="img/guias/cesar.jpg" />
                 <div>
                     <strong>Cesar</strong>
+                    <small>Aquí puede ir algun texto.</small>
                 </div>
             </li>
 
@@ -212,6 +225,7 @@
                 <img src="img/guias/gesu.jpg" />
                 <div>
                     <strong>Gesu</strong>
+                    <small>Aquí puede ir algun texto.</small>
                 </div>
             </li>
         <br><br>
@@ -236,7 +250,6 @@
 	document.addEventListener("backbutton", goBack, false);
 
 	function goBack() {
-		Lungo.Element.menu.hide("options");
 		Lungo.Router.article("main_section", "article_home");
 	}
 
@@ -291,7 +304,6 @@
 
                 //setting the counter
                 Lungo.Element.count(".eventoCounter", calendar.length);
-                $$("#homeEvento").data('count', calendar.length);
 
                 //adding to the home
                 $$('#homeEvento').html(' ' + ev[0].title + ', ' + ev[0].fecha);

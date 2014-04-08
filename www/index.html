@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="lungo/lungo.theme.css">
 
     <style>
-        body > section > header{background:#00ac4e;background:linear-gradient(#00ac4e,#009B46);-webkit-box-shadow: inset 0 -1px #008039, 0 1px rgba(0,0,0,.1);-moz-box-shadow: inset 0 -1px #008039, 0 1px rgba(0,0,0,.1);box-shadow: inset 0 -1px #008039, 0 1px rgba(0,0,0,.1)}
+        body > section > header{background:#00ac4e;background:linear-gradient(#00ac4e,#009B46);-webkit-box-shadow:inset rgba(255,255,255,.2) 0 1px 0, inset 0 -1px #008039, 0 1px rgba(0,0,0,.1);-moz-box-shadow:inset rgba(255,255,255,.2) 0 1px 0, inset 0 -1px #008039, 0 1px rgba(0,0,0,.1);box-shadow:inset rgba(255,255,255,.2) 0 1px 0, inset 0 -1px #008039, 0 1px rgba(0,0,0,.1)}
         body > section > header .title{text-shadow: 0 .1em #008039;}
         section header > nav.on-right a, section header > nav.on-right button {text-shadow: 0 .1em #008039;}
         section header > nav:not(.on-right) a, section header > nav:not(.on-right) button {color:#008039;text-shadow:0 0.1em #0ac45e;}
@@ -20,6 +20,13 @@
 
 		#article_home{background:url(img/ui/homebg.jpg) no-repeat center;-webkit-background-size: cover;
 		background-size: cover;color:#fff;}
+
+		h1{text-align: center;}
+
+		#article_home li{background:#f80;border-bottom: 1px solid rgba(0,0,0,.1);text-shadow:rgba(0,0,0,.1) 0 -1px 0;}
+		#article_home li small{color:rgba(255,255,255,.75);}
+
+		.logo{padding: 0 1em;margin: 0 auto;display: block;}
     </style>
 </head>
 <body>
@@ -48,24 +55,28 @@
 
 		<h1>Bienvenido a Rueda Verde</h1>
 
-    	<!--
+		<img src="img/ui/logo.png" alt="" class="logo">
+
             <ul>
                 <li data-icon="calendar" data-view-article="article_eventos" data-title="Eventos">
                     <strong>Ver eventos</strong>
+                    <small>Próximo: 29 de Marzo</small>
                 </li>
 
                 <li data-icon="bullhorn" data-view-article="article_noticias" data-title="Noticias">
                     <strong>Ver noticias</strong>
+                    <small>Rueda Verde rompe record de asistentes.</small>
                 </li>
 
                 <li data-icon="group" data-view-article="article_guias" data-title="Guías">
                     <strong>Conocer a los guías</strong>
+                    <small>¡Tú también puedes formar parte del equipo!</small>
                 </li>
 
                 <button id="facebookShare" class="anchor margin-bottom" data-icon="facebook" data-label="Compartir en facebook"></button>
 
             </ul>
-        -->
+
     </article><!-- home -->
 
     <article id="article_eventos" class="list indented scroll">

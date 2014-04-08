@@ -75,13 +75,13 @@
 
 				<div class="d6">
                 <li data-icon="comment" data-view-article="article_guias" data-title="Guías">
-                    <strong>Mándanos un mensaje</strong>
+                    <strong>Comunícate</strong>
                 </li>
                 </div>
 
 				<div class="d6">
                 <li id="facebookShare" data-icon="facebook">
-                    <strong>Compartir en facebook</strong>
+                    <strong>Compartir</strong>
                 </li>
                 </div>
 
@@ -236,6 +236,7 @@
 	document.addEventListener("backbutton", goBack, false);
 
 	function goBack() {
+		Lungo.Element.menu.hide("options");
 		Lungo.Router.article("main_section", "article_home");
 	}
 
@@ -290,7 +291,7 @@
 
                 //setting the counter
                 Lungo.Element.count(".eventoCounter", calendar.length);
-                Lungo.Element.count("#homeEvento", calendar.length);
+                $$("#homeEvento")..data('count', calendar.length);
 
                 //adding to the home
                 $$('#homeEvento').html(' ' + ev[0].title + ', ' + ev[0].fecha);

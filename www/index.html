@@ -47,7 +47,7 @@
 
     <nav id="options" data-control="menu">
         <a href="#" data-title="Inicio" data-view-article="article_home" data-icon="home" class="active">Inicio</a>
-        <a href="#" data-title="Eventos" data-view-article="article_eventos" data-icon="calendar">Eventos</a>
+        <a href="#" data-title="Eventos" data-view-article="article_eventos" data-icon="calendar" class="eventoCounter">Eventos</a>
         <a href="#" data-title="Noticias" data-view-article="article_noticias" data-icon="bullhorn">Noticias</a>
         <a href="#" data-title="Guías" data-view-article="article_guias" data-icon="group">Guías</a>
     </nav>
@@ -61,7 +61,7 @@
             <ul>
                 <li data-icon="calendar" data-view-article="article_eventos" data-title="Eventos">
                     <strong>Ver eventos</strong>
-                    <small id="homeEvento"></small>
+                    <small id="homeEvento" class="eventoCounter"></small>
                 </li>
 
                 <li data-icon="bullhorn" data-view-article="article_noticias" data-title="Noticias">
@@ -80,10 +80,8 @@
                 </li>
 
                 <button id="facebookShare" class="anchor margin-bottom" data-icon="facebook" data-label="Compartir en facebook"></button>
-			
-				<br><br>
             </ul>
-
+		<br><br>
     </article><!-- home -->
 
     <article id="article_eventos" class="list indented scroll">
@@ -265,9 +263,9 @@
                     ev[i].place = calendar[i].custom_fields.lugar[0];
                     ev[i].title =  calendar[i].title;
                     ev[i].route = calendar[i].custom_fields.ruta[0];
+                    ev[0].fecha = ev[i].day + ' - ' + ev[i].month + ' - ' + ev[i].year;
 
-                    var fecha = ev[i].day + ' - ' + ev[i].month + ' - ' + ev[i].year;
-                    bufferEventos += '<li class="evento"><a href="#" data-evid="' + i + '" class="addMap button on-right" data-label="Agregar al calendario"><abbr>Agregar al calendario</abbr></a><strong class="text bold">' + ev[i].title + '</strong><span class="text tiny">' + fecha + ' - ' + ev[i].hour + ':00</span><small>' + ev[i].description + '</small>';
+                    bufferEventos += '<li class="evento"><a href="#" data-evid="' + i + '" class="addMap button on-right" data-label="Agregar al calendario"><abbr>Agregar al calendario</abbr></a><strong class="text bold">' + ev[i].title + '</strong><span class="text tiny">' + ev[i].fecha + ' - ' + ev[i].hour + ':00</span><small>' + ev[i].description + '</small>';
 
                     //adding the google map
                     if(ev[i].route != "") {
@@ -276,8 +274,12 @@
                         bufferEventos += '</li>';
                     }
                 }
+
+                //setting the counter
+                Lungo.Element.count(".eventoCounter", calendar.length);
+
                 //adding to the home
-                $$('#homeEvento').html(ev[0].title);
+                $$('#homeEvento').html(ev[0].title + ', ' + ev[0].fecha);
 
                 $$('#showEventos').html(bufferEventos);
                 pull_eventos.hide();

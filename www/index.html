@@ -220,12 +220,12 @@
 //document.addEventListener("deviceready", onDeviceReady, false);
 //function onDeviceReady() {
 
-	//this will make the back button work
-	document.addEventListener("backbutton", Lungo.Router.back, false);
-
     Lungo.init({
 
     });
+
+	//this will make the back button work
+	document.addEventListener("backbutton", Lungo.Router.back, false);
 
     var pull_eventos = new Lungo.Element.Pull('#article_eventos', {
         onPull: "Desliza hacia abajo para actualizar",      //Text on pulling

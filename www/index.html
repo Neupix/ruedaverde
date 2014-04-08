@@ -21,19 +21,20 @@
 		#article_home{background:url(img/ui/homebg.jpg) no-repeat center;-webkit-background-size: cover;
 		background-size: cover;color:#fff;}
 
-		h1{text-align: center;}
+		
 
 		#article_home li{background:#f80;border-bottom: 1px solid rgba(0,0,0,.1);text-shadow:rgba(0,0,0,.1) 0 -1px 0;}
 		#article_home li small{color:rgba(255,255,255,.75);}
 
-		.logo{padding: 0 1em;margin: 0 auto;display: block;}
+		h1{text-align: center;}
+		.logo{margin: 0 1em;display: inline-block;}
     </style>
 </head>
 <body>
 
 <section id="main_section" data-tansition="slide" data-pull="normal">
 
-    <header data-title="Rueda Verde">
+    <header data-title="Inicio">
         <nav>
             <a href="#" data-view-menu="options" data-icon="menu"></a>
         </nav>
@@ -45,7 +46,7 @@
     </header>
 
     <nav id="options" data-control="menu">
-        <a href="#" data-title="Rueda Verde" data-view-article="article_home" data-icon="home" class="active">Inicio</a>
+        <a href="#" data-title="Inicio" data-view-article="article_home" data-icon="home" class="active">Inicio</a>
         <a href="#" data-title="Eventos" data-view-article="article_eventos" data-icon="calendar">Eventos</a>
         <a href="#" data-title="Noticias" data-view-article="article_noticias" data-icon="bullhorn">Noticias</a>
         <a href="#" data-title="Guías" data-view-article="article_guias" data-icon="group">Guías</a>
@@ -53,19 +54,19 @@
 
     <article id="article_home" class="active list scroll indented">
 
-		<h1>Bienvenido a Rueda Verde</h1>
-
-		<img src="img/ui/logo.png" alt="" class="logo">
+		<h1>
+			<img src="img/ui/logo.png" alt="" class="logo">
+		</h1>
 
             <ul>
                 <li data-icon="calendar" data-view-article="article_eventos" data-title="Eventos">
                     <strong>Ver eventos</strong>
-                    <small>Próximo: 29 de Marzo</small>
+                    <small id="homeEvento"></small>
                 </li>
 
                 <li data-icon="bullhorn" data-view-article="article_noticias" data-title="Noticias">
                     <strong>Ver noticias</strong>
-                    <small>Rueda Verde rompe record de asistentes.</small>
+                    <small id="homeNoticia"></small>
                 </li>
 
                 <li data-icon="group" data-view-article="article_guias" data-title="Guías">
@@ -73,8 +74,14 @@
                     <small>¡Tú también puedes formar parte del equipo!</small>
                 </li>
 
-                <button id="facebookShare" class="anchor margin-bottom" data-icon="facebook" data-label="Compartir en facebook"></button>
+                <li data-icon="comment" data-view-article="article_guias" data-title="Guías">
+                    <strong>Mándanos un mensaje</strong>
+                    <small>Nos interesa conocer tu opinión.</small>
+                </li>
 
+                <button id="facebookShare" class="anchor margin-bottom" data-icon="facebook" data-label="Compartir en facebook"></button>
+			
+				<br><br>
             </ul>
 
     </article><!-- home -->
@@ -249,7 +256,6 @@
                 calendar = JSON.parse(getCalendar.response).posts;
                 var bufferEventos = "";
                 for(i=0;i<calendar.length;i++) {
-
                     ev[i] = new Object();
                     ev[i].year = parseInt(calendar[i].custom_fields.fecha[0].slice(0,4),10);
                     ev[i].day = parseInt(calendar[i].custom_fields.fecha[0].slice(6,8),10);
@@ -270,6 +276,9 @@
                         bufferEventos += '</li>';
                     }
                 }
+                //adding to the home
+                $$('#homeEvento').html(ev[0].title);
+
                 $$('#showEventos').html(bufferEventos);
                 pull_eventos.hide();
             }
@@ -286,6 +295,9 @@
                 for(i=0;i<noticias.length;i++) {
                     bufferNoticias += '<li><strong class="text bold">' + noticias[i].title + '</strong><span class="text tiny">' + noticias[i].custom_fields.texto[0]+ '</span><br><img src="' + noticias[i].thumbnail + '">';
                 }
+                //adding to home
+                $$('#homeNoticia').html(noticias[0].title);
+
                 $$('#showNoticias').html(bufferNoticias);
                 pull_noticias.hide();
             }

@@ -70,7 +70,7 @@
                 </li>
 
                 <li data-icon="group" data-view-article="article_guias" data-title="Guías">
-                    <strong>Conocer a los guías</strong>
+                    <strong>Ver a los guías</strong>
                 </li>
 
                 <li data-icon="comment" data-view-article="article_guias" data-title="Guías">
@@ -225,7 +225,12 @@
     });
 
 	//this will make the back button work
-	document.addEventListener("backbutton", Lungo.Router.back, false);
+	document.addEventListener("backbutton", goBack, false);
+
+	function goBack() {
+		alert('going back!');
+		Lungo.Router.back();
+	}
 
     var pull_eventos = new Lungo.Element.Pull('#article_eventos', {
         onPull: "Desliza hacia abajo para actualizar",      //Text on pulling

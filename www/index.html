@@ -47,7 +47,7 @@
 
     <nav id="options" data-control="menu">
         <a href="#" data-title="Inicio" data-view-article="article_home" data-icon="home" class="active">Inicio</a>
-        <a href="#" data-title="Eventos" data-view-article="article_eventos" data-icon="calendar" class="eventoCounter">Eventos</a>
+        <a href="#" data-title="Eventos " data-view-article="article_eventos" data-icon="calendar" class="eventoCounter">Eventos</a>
         <a href="#" data-title="Noticias" data-view-article="article_noticias" data-icon="bullhorn">Noticias</a>
         <a href="#" data-title="Guías" data-view-article="article_guias" data-icon="group">Guías</a>
     </nav>
@@ -220,6 +220,9 @@
 //document.addEventListener("deviceready", onDeviceReady, false);
 //function onDeviceReady() {
 
+	//this will make the back button work
+	document.addEventListener("backbutton", Lungo.Router.back, false);
+
     Lungo.init({
 
     });
@@ -261,7 +264,7 @@
                     ev[i].place = calendar[i].custom_fields.lugar[0];
                     ev[i].title =  calendar[i].title;
                     ev[i].route = calendar[i].custom_fields.ruta[0];
-                    ev[i].fecha = ev[i].day + ' - ' + ev[i].month + ' - ' + ev[i].year;
+                    ev[i].fecha = ev[i].day + '/' + ev[i].month + '/' + ev[i].year;
 
                     bufferEventos += '<li class="evento"><a href="#" data-evid="' + i + '" class="addMap button on-right" data-label="Agregar al calendario"><abbr>Agregar al calendario</abbr></a><strong class="text bold">' + ev[i].title + '</strong><span class="text tiny">' + ev[i].fecha + ' - ' + ev[i].hour + ':00</span><small>' + ev[i].description + '</small>';
 

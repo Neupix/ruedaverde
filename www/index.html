@@ -19,15 +19,15 @@
         .c{clear:both;display:block;height: 0;width: 0;font-size:0;opacity: 0;}
 
 		#article_home{background:url(img/ui/homebg.jpg) no-repeat center;-webkit-background-size: cover;
-		background-size: cover;color:#fff;}
-
-		
+		background-size: cover;color:#fff;}		
 
 		#article_home li{background:#f80;border-bottom: 1px solid rgba(0,0,0,.1);text-shadow:rgba(0,0,0,.1) 0 -1px 0;}
 		#article_home li small{color:rgba(255,255,255,.75);}
 
 		h1{text-align: center;}
 		.logo{margin: 0 1em;display: inline-block;}
+
+		#facebookShare{background:#3B5998 !important}
     </style>
 </head>
 <body>
@@ -47,7 +47,7 @@
 
     <nav id="options" data-control="menu">
         <a href="#" data-title="Inicio" data-view-article="article_home" data-icon="home" class="active">Inicio</a>
-        <a href="#" data-title="Eventos " data-view-article="article_eventos" data-icon="calendar" class="eventoCounter">Eventos</a>
+        <a href="#" data-title="Eventos" data-view-article="article_eventos" data-icon="calendar" class="eventoCounter">Eventos </a>
         <a href="#" data-title="Noticias" data-view-article="article_noticias" data-icon="bullhorn">Noticias</a>
         <a href="#" data-title="Guías" data-view-article="article_guias" data-icon="group">Guías</a>
     </nav>
@@ -70,14 +70,22 @@
                 </li>
 
                 <li data-icon="group" data-view-article="article_guias" data-title="Guías">
-                    <strong>Ver a los guías</strong>
+                    <strong>Conocer a los guías</strong>
                 </li>
 
+				<div class="d6">
                 <li data-icon="comment" data-view-article="article_guias" data-title="Guías">
                     <strong>Mándanos un mensaje</strong>
                 </li>
+                </div>
 
-                <button id="facebookShare" class="anchor margin-bottom" data-icon="facebook" data-label="Compartir en facebook"></button>
+				<div class="d6">
+                <li id="facebookShare" data-icon="facebook">
+                    <strong>Compartir en facebook</strong>
+                </li>
+                </div>
+
+            <div class="c">.</div>
             </ul>
 		<br><br>
     </article><!-- home -->
@@ -228,8 +236,7 @@
 	document.addEventListener("backbutton", goBack, false);
 
 	function goBack() {
-		alert('going back!');
-		Lungo.Router.back();
+		Lungo.Router.article("main_section", "article_home");
 	}
 
     var pull_eventos = new Lungo.Element.Pull('#article_eventos', {

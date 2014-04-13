@@ -259,7 +259,7 @@
 
 	function listenEventos() {
 		$('*[data-evento]').on('click', function() {
-			var i = $(this).data('data-evento');
+			var i = $(this).attr('data-evento');
 			var startDate = new Date(evento[i].yy,evento[i].mm-1,evento[i].dd,evento[i].hora,0,0,0,0);
 			var endDate = new Date(evento[i].yy,evento[i].mm-1,evento[i].dd,evento[i].hora+2,0,0,0,0);
 			var title = evento[i].title;

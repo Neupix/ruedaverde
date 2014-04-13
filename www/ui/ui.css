@@ -1,7 +1,7 @@
 *{margin: 0;padding: 0;-webkit-transition: -webkit-transform .3s, opacity .3s;position: relative}
 *, *:before, *:after {-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box}
 
-body,textarea,input{font: 1rem/1.5 "Open Sans", sans-serif}
+body,textarea,input, button{font: 1rem/1.5 "Open Sans", sans-serif}
 body{background: #eaeaea;width:100%;overflow-x:hidden}
 a{text-decoration: none}
 img{display: block;border: 0;max-width: 100%;}
@@ -38,9 +38,9 @@ article form{margin: 1rem;}
 #fade{position: fixed;top: 0;right: 0;bottom: 0;left: 0;z-index: 10;display: none}
 
 /* navs */
-nav#side{width:18rem;position: fixed;top: 0;left: -18rem;height: 100%;background: #111;z-index: 100}
-nav#side a{display: block;height: 3rem;line-height: 3rem;color:#ddd;padding: 0 0 0 1rem;border-bottom: 1px solid #222;font-size: 1.1rem}
-nav#side a:hover{background:#222;color:#fff}
+nav#side{width:18rem;position: fixed;top: 0;left: -18rem;height: 100%;background: rgba(0,0,0,.9);z-index: 100}
+nav#side a{display: block;height: 3rem;line-height: 3rem;color:#ddd;padding: 0 0 0 1rem;border-bottom: 1px solid rgba(255,255,255,.1);font-size: 1.1rem}
+nav#side a:hover{background:#000;color:#fff}
 nav#side header{background:#000}
 
 nav#side > header{}
@@ -49,7 +49,7 @@ nav#side > header{}
 footer{position: absolute;bottom: 0;padding: 1rem;width: 100%;}
 
 /* components */
-.button{padding:.618rem;display: block;text-align: center;background: #000;color:#fff;margin: 1rem 0;width: 100%;font-size: 1rem}
+.button{font-size: 1rem;margin: 1rem;padding: 0 1rem;background: #00ac4e;color:#fff;border: 0;display: block;text-align: left;line-height: 3rem;text-shadow:rgba(0,0,0,.1) 0 -1px 0;box-shadow:rgba(0,0,0,.1) 0 1px 0}
 
 /* states */
 body.showSide nav#side{-webkit-transform:translatex(18rem)}

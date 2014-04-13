@@ -227,6 +227,52 @@
 		});
 	}();
 
+	var evento = [];
+	var updateEventos = function() {
+		var eventosBuffer = "";
+		$.ajax({
+			url: "http://javierbyte.com/app/ruedaverde/api/get_recent_posts/?post_type=evento",
+			jsonp: "callback",
+			dataType: "jsonp",
+			success: function( res ) {
+				$('#home_show_eventos').html(res.posts[0].title + ' [' + res.posts[0].custom_fields.fecha[0] + ']');
+
+				for(x in res.posts) {
+					evento[x] = new Object();
+					evento[x].title = res.posts[x].title;
+					evento[x].descripcion = res.posts[x].custom_fields.descripcion[0];
+					evento[x].fecha = res.posts[x].custom_fields.fecha[0];
+						evento[x].yy = evento[x].fecha.split('-')[0];
+						evento[x].mm = evento[x].fecha.split('-')[1];
+						evento[x].dd = evento[x].fecha.split('-')[2];
+					evento[x].hora = res.posts[x].custom_fields.hora[0];
+					evento[x].ruta = res.posts[x].custom_fields.ruta[0];
+					evento[x].lugar = res.posts[x].custom_fields.lugar[0];
+
+					eventosBuffer += '<div data-evento="' + x + '"><h1>' + evento[x].title + '</h1><b>Descripción</b> ' + evento[x].descripcion + '<br><b>Fecha</b> ' + evento[x].fecha + ' ' + evento[x].hora + ':00</div>';
+				}
+				$('#home_eventos').html(eventosBuffer);
+			}
+		});
+	}();
+
+	$('*[data-evento]').on('click', function() {
+		var i = $$(this).data('data-evento');
+		var startDate = new Date(evento[i].yy,evento[i].mm-1,evento[i].dd,evento[i].hora,0,0,0,0);
+		var endDate = new Date(evento[i].yy,evento[i].mm-1,evento[i].dd,evento[i].hora+2,0,0,0,0);
+		var title = evento[i].title;
+		var location = evento[i].lugar;
+		var success = function(message) { alert("Evento agregado con éxito a tu calendario, ¡te esperamos!"); };
+		var error = function(message) { alert("Error: " + message); };
+		window.plugins.calendar.findEvent(title,location,"",startDate,endDate,function(message) {
+			if(message.length) {
+				alert('Ya agregaste el evento al calendario, ¡gracias!');
+			} else {
+				window.plugins.calendar.createEvent(title,location,"",startDate,endDate,success,error);
+			}
+		},error);
+	});
+
 </script>
 </body>
 </html>

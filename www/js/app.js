@@ -53,7 +53,6 @@ function back() {
 }
 
 function exit() {
-	alert('gutbai');
 	navigator.app.exitApp();
 }
 

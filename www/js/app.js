@@ -32,6 +32,9 @@ function load(section,article) {
 		}
 	}
 
+	history.push( [currentSection, currentArticle] );
+	console.log(history);
+
 	var moving = setTimeout(function() {
 		$('.fade').removeClass('active fade');
 	},300);
@@ -42,22 +45,28 @@ function closeSide() {
 }
 
 /* ui functions */
-$('a[open-nav]').on('click', function() {
+$('*[open-nav]').on('click', function() {
 	event.preventDefault();
 	$body.addClass('showSide');
 });
 
-$('a[data-section]').on('click', function() {
+$('*[data-section]').on('click', function() {
 	event.preventDefault();
 	load($(this).attr('data-section'),0);
 	closeSide();
 })
 
-$('a[data-article]').on('click', function() {
+$('*[data-article]').on('click', function() {
 	event.preventDefault();
 	load(0,$(this).attr('data-article'));
 	closeSide();
 })
+
+$('*[back]').on('click', function() {
+	event.preventDefault();
+	history.pop();
+	load(history[history.length-1][0], history[history.length-1][1]);
+});
 
 /* starting */
 var currentSection = '#' + $('section').first().attr('id');

@@ -15,49 +15,187 @@
 
 <section id="home">
 	<header>
-		<div class="title">Rueda Verde</div>
+		<div class="title">Inicio</div>
 
 		<nav class="left">
 			<a open-nav><i class="fa fa-bars"></i></a>
 		</nav>
 	</header>
 
-	<article id="home_menu">
+	<article id="home_menu" data-title="Inicio">
 		<img src="img/ui/logo.png" class="logo" alt="">
 
-		<a class="button">
-			<i class="fa fa-calendar"></i> Eventos.
-		</a>
-
-		<a class="button">
-			<i class="fa fa-bullhorn"></i> Noticias.
-		</a>
-
-		<a class="button">
-			<li class="fa fa-group"></li> Conocer a los guías.
-		</a>
+		<a data-article="home_eventos" class="button"><i class="fa fa-calendar"></i> Eventos</a>
+		<a data-article="home_noticias" class="button"><i class="fa fa-bullhorn"></i> Noticias</a>
+		<a data-article="home_guias" class="button"><li class="fa fa-group"></li> Conocer a los guías</a>
 
 		<aside class="columns">
 			<aside class="d6">
-				<a class="button">
-					<i class="fa fa-facebook"></i> Compartir.
-				</a>
+				<a class="button"><i class="fa fa-facebook"></i> Compartir</a>
 			</aside>
 	
 			<aside class="d6">
-				<a class="button">
-					<i class="fa fa-comment"></i> Mensaje.
-				</a>
+				<a class="button"><i class="fa fa-comment"></i> Mensaje</a>
 			</aside>
 		</aside>
+	</article><!-- home_menu -->
 
+	<article id="home_eventos" data-title="Eventos">
+		Eventos.
+	</article><!-- home_eventos -->
+
+	<article id="home_noticias" data-title="Noticias">
+		<div data-section="noticia">
+			<h1>Noticia 1</h1>
+			Noticia 1 y laalalalá.
+		</div>
+	</article><!-- home_noticias -->
+
+	<article id="home_guias" data-title="Guias">
+            <div class="p0">
+                <img src="img/guias/guias.jpg">
+            </div>
+
+            <div>Los guías donan su tiempo a Rueda Verde, y trabajan en pro de tu seguridad. Conócelos.</div>
+
+            <div class="thumb">
+                <img src="img/guias/andrea.jpg" />
+                <aside>
+                    <h1>Andrea</h1>
+                    <small>Aquí puede ir algun texto.</small>
+                </aside>
+            </div>
+
+            <div class="thumb">
+                <img src="img/guias/luisfelipe.jpg" />
+                <aside>
+                    <h1>Luis Felipe</h1>
+                    <small>Aquí puede ir algun texto.</small>
+                </aside>
+            </div>
+
+            <div class="thumb">
+                <img src="img/guias/julio.jpg" />
+                <aside>
+                    <h1>Julio Morales</h1>
+                    <small>Aquí puede ir algun texto.</small>
+                </aside>
+            </div>
+
+            <div class="thumb">
+                <img src="img/guias/dania.jpg" />
+                <aside>
+                    <h1>Dania</h1>
+                    <small>Aquí puede ir algun texto.</small>
+                </aside>
+            </div>
+
+            <div class="thumb">
+                <img src="img/guias/edd.jpg" />
+                <aside>
+                    <h1>Edd</h1>
+                    <small>Aquí puede ir algun texto.</small>
+                </aside>
+            </div>
+
+            <div class="thumb">
+                <img src="img/guias/fatho.jpg" />
+                <aside>
+                    <h1>Fatho</h1>
+                    <small>Aquí puede ir algun texto.</small>
+                </aside>
+            </div>
+
+            <div class="thumb">
+                <img src="img/guias/raquel.jpg" />
+                <aside>
+                    <h1>Raquel</h1>
+                    <small>Aquí puede ir algun texto.</small>
+                </aside>
+            </div>
+
+            <div class="thumb">
+                <img src="img/guias/suzie.jpg" />
+                <aside>
+                    <h1>Suzie</h1>
+                    <small>Aquí puede ir algun texto.</small>
+                </aside>
+            </div>
+
+            <div class="thumb">
+                <img src="img/guias/roberto.jpg" />
+                <aside>
+                    <h1>Roberto</h1>
+                    <small>Aquí puede ir algun texto.</small>
+                </aside>
+            </div>
+
+            <div class="thumb">
+                <img src="img/guias/rudy.jpg" />
+                <aside>
+                    <h1>Rudy</h1>
+                    <small>Aquí puede ir algun texto.</small>
+                </aside>
+            </div>
+
+            <div class="thumb">
+                <img src="img/guias/tannia.jpg" />
+                <aside>
+                    <h1>Tannia</h1>
+                    <small>Aquí puede ir algun texto.</small>
+                </aside>
+            </div>
+
+            <div class="thumb">
+                <img src="img/guias/gustavo.jpg" />
+                <aside>
+                    <h1>Gustavo</h1>
+                    <small>Aquí puede ir algun texto.</small>
+                </aside>
+            </div>
+
+            <div class="thumb">
+                <img src="img/guias/cesar.jpg" />
+                <aside>
+                    <h1>Cesar</h1>
+                    <small>Aquí puede ir algun texto.</small>
+                </aside>
+            </div>
+
+            <div class="thumb">
+                <img src="img/guias/gesu.jpg" />
+                <aside>
+                    <h1>Gesu</h1>
+                    <small>Aquí puede ir algun texto.</small>
+                </aside>
+            </div>
 	</article>
-</section>
+
+</section><!-- home -->
+
+<section id="noticia">
+	<header>
+		<data class="title">Noticia</data>
+	
+		<nav class="left">
+			<a back><i class="fa fa-chevron-left"></i></a>
+		</nav>
+	</header>
+
+	<article id="noticia_inicio" data-title="Noticia">
+		<div>
+			<h1>test</h1>
+			test
+		</div>
+	</article><!-- noticia_inicio -->
+	
+</section><!-- noticia -->
 
 <nav id="side">
 	<a data-article="home_menu">Inicio</a>
-	<a data-article="home_menu">Eventos</a>
-	<a data-article="home_menu">Noticias</a>
+	<a data-article="home_eventos">Eventos</a>
+	<a data-article="home_noticias">Noticias</a>
+	<a data-article="home_guias">Guías</a>
 	<a data-article="home_menu">Mándanos un mensaje</a>
 </nav>
 

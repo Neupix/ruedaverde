@@ -52,8 +52,9 @@ nav#side > header{}
 footer{position: absolute;bottom: 0;padding: 1rem;width: 100%;}
 
 /* components */
-.button{font-size: 1rem;margin: 1rem;padding: 0 1rem;background: #00ac4e;color:#fff;border: 0;display: block;text-align: left;line-height: 3rem;text-shadow:rgba(0,0,0,.1) 0 -1px 0;box-shadow:rgba(0,0,0,.1) 0 1px 0}
-.button .fa{width: 1.5rem;font-size: 1.25rem;line-height: 1.25;text-align: center;left: -.25rem;}
+.button{font-size: 1rem;margin: 1rem;padding: 1rem;background: #00ac4e;color:#fff;border: 0;display: block;text-align: left;line-height: 1rem;text-shadow:rgba(0,0,0,.1) 0 -1px 0;box-shadow:rgba(0,0,0,.1) 0 1px 0;overflow: hidden;}
+.button small{display: block;padding-top: .25rem;}
+.button .fa{width: 1.5rem;font-size: 1.25rem;line-height: 1rem;text-align: center;left: -.25rem;}
 
 .thumb{padding: 0;overflow: hidden;}
 .thumb img{display: block;height: 72px;width:72px}

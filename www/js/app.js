@@ -12,6 +12,8 @@ $fade.on('click', closeSide);
 /* primitive functions */
 
 function load(section,article) {
+	window.scrollTo(0,0); // going to top
+
 	if(section && section != currentSection) {
 		if(section[0] != '#') section = '#' + section;
 		$(currentSection).addClass('fade');
@@ -44,10 +46,10 @@ function closeSide() {
 }
 
 function back() {
-	alert('backintime');
+	if(history.length == 1) exit()
 	history.pop();
-	if (!history[history.length-1]) exit();
 	load(history[history.length-1][0], history[history.length-1][1]);
+	history.pop();
 }
 
 function exit() {
@@ -86,5 +88,6 @@ $(currentSection).addClass('active');
 $(currentArticle).addClass('active');
 
 var history = [];
+history.push( [currentSection, currentArticle] );
 
 document.addEventListener("backbutton", back, false);

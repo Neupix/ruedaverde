@@ -25,9 +25,17 @@
 	<article id="home_menu" data-title="Inicio">
 		<img src="img/ui/logo.png" class="logo" alt="">
 
-		<a data-article="home_eventos" class="button"><i class="fa fa-calendar"></i> Eventos</a>
-		<a data-article="home_noticias" class="button"><i class="fa fa-bullhorn"></i> Noticias</a>
-		<a data-article="home_guias" class="button"><li class="fa fa-group"></li> Conocer a los guías</a>
+		<a data-article="home_eventos" class="button">
+			<i class="fa fa-calendar"></i> Eventos
+			<small id="home_show_eventos"></small>
+		</a>
+		<a data-article="home_noticias" class="button">
+			<i class="fa fa-bullhorn"></i> Noticias
+			<small id="home_show_noticias"></small>
+		</a>
+		<a data-article="home_guias" class="button">
+			<li class="fa fa-group"></li> Conocer a los guías
+		</a>
 
 		<aside class="columns">
 			<aside class="d6">
@@ -35,7 +43,7 @@
 			</aside>
 	
 			<aside class="d6">
-				<a href="mailto:contacto@ruedaverde.org" class="button"><i class="fa fa-comment"></i> Contáctanos</a>
+				<a href="mailto:contacto@ruedaverde.org" class="button"><i class="fa fa-comment"></i> Contacto</a>
 			</aside>
 		</aside>
 	</article><!-- home_menu -->
@@ -210,15 +218,15 @@
 			jsonp: "callback",
 			dataType: "jsonp",
 			success: function( res ) {
+				$('#home_show_noticias').html(res.posts[0].title);
 				for(x in res.posts) {
 					noticiasBuffer += '<div class="p0"><img src="' + res.posts[x].thumbnail + '"><aside><h1>' + res.posts[x].title + '</h1>' + res.posts[x].custom_fields.texto + '</aside></div>';
 				}
 				$('#home_noticias').html(noticiasBuffer);
 			}
 		});
-	};
+	}();
 
-	updateNoticias();
 </script>
 </body>
 </html>

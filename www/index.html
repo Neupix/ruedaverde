@@ -249,9 +249,16 @@
 					evento[x].ruta = res.posts[x].custom_fields.ruta[0];
 					evento[x].lugar = res.posts[x].custom_fields.lugar[0];
 
-					eventosBuffer += '<div data-evento="' + x + '"><h1>' + evento[x].title + '</h1><b>Descripción</b> ' + evento[x].descripcion + '<br><b>Fecha</b> ' + evento[x].fecha + ' ' + evento[x].hora + ':00</div>';
+					eventosBuffer += '<div><h1>' + evento[x].title + '</h1><b>Descripción</b> ' + evento[x].descripcion + '<br><b>Fecha</b> ' + evento[x].fecha + ' ' + evento[x].hora + ':00';
+					
+					//adding the google map
+					if(evento[x].ruta != "") {
+						eventosBuffer += '<a href="http://maps.googleapis.com/maps/api/staticmap?scale=2&size=640x640&path=weight:5%7Ccolor:0x000000%7Cenc:' + evento[x].ruta + '&sensor=true"><img src="http://maps.googleapis.com/maps/api/staticmap?size=480x320&path=weight:5%7Ccolor:0x000000%7Cenc:' + evento[x].ruta + '&sensor=true"/></a></li>';
+					}
+
+					eventosBuffer += '<a data-evento="' + x + '" class="button">Agregar al calendario</a></li></div>';
 				}
-				$('#home_eventos').html(eventosBuffer);
+				$('#home_eventos').html(eventosBuffer + '<p class="note">Clic en un evento para agregarlo al calendario.</p>');
 				listenEventos();
 			}
 		});

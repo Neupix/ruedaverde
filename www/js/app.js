@@ -44,6 +44,16 @@ function closeSide() {
 	$body.removeClass('showSide');
 }
 
+function back() {
+	history.pop();
+	if (!history[history.length-1]) exit();
+	load(history[history.length-1][0], history[history.length-1][1]);
+}
+
+function exit() {
+	navigator.app.exitApp();
+}
+
 /* ui functions */
 $('*[open-nav]').on('click', function() {
 	event.preventDefault();
@@ -64,8 +74,7 @@ $('*[data-article]').on('click', function() {
 
 $('*[back]').on('click', function() {
 	event.preventDefault();
-	history.pop();
-	load(history[history.length-1][0], history[history.length-1][1]);
+	back();
 });
 
 /* starting */
@@ -76,3 +85,5 @@ $(currentSection).addClass('active');
 $(currentArticle).addClass('active');
 
 var history = [];
+
+document.addEventListener("backbutton", back, false);

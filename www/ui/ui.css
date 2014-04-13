@@ -31,6 +31,7 @@ article h1{font-size: 1rem}
 article div{margin: 1rem;padding: 1rem;background: #fff;box-shadow:rgba(0,0,0,.1) 0 1px 0}
 article aside{margin: 1rem}
 
+article h1{line-height: 1;margin-bottom: .25rem;}
 article form{margin: 1rem;}
 
 .active{display: block}
@@ -51,7 +52,7 @@ footer{position: absolute;bottom: 0;padding: 1rem;width: 100%;}
 
 /* components */
 .button{font-size: 1rem;margin: 1rem;padding: 0 1rem;background: #00ac4e;color:#fff;border: 0;display: block;text-align: left;line-height: 3rem;text-shadow:rgba(0,0,0,.1) 0 -1px 0;box-shadow:rgba(0,0,0,.1) 0 1px 0}
-.button .fa{margin-right: .5rem;font-size: 1.25rem;line-height: 1.25;}
+.button .fa{width: 1.5rem;font-size: 1.25rem;line-height: 1.25;text-align: center;left: -.25rem;}
 
 .thumb{padding: 0;overflow: hidden;}
 .thumb img{display: block;height: 72px;width:72px}

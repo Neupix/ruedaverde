@@ -33,7 +33,6 @@ function load(section,article) {
 	}
 
 	history.push( [currentSection, currentArticle] );
-	console.log(history);
 
 	var moving = setTimeout(function() {
 		$('.fade').removeClass('active fade');
@@ -51,6 +50,7 @@ function back() {
 }
 
 function exit() {
+	alert('gutbai');
 	navigator.app.exitApp();
 }
 

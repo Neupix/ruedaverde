@@ -180,23 +180,20 @@
 
 </section><!-- home -->
 
-<section id="noticia">
+<section id="mapa">
 	<header>
-		<data class="title">Noticia</data>
+		<data class="title">Mapa</data>
 	
 		<nav class="left">
 			<a back><i class="fa fa-chevron-left"></i></a>
 		</nav>
 	</header>
 
-	<article id="noticia_inicio" data-title="Noticia">
-		<div>
-			<h1>test</h1>
-			test
-		</div>
-	</article><!-- noticia_inicio -->
+	<article id="noticia_inicio" data-title="Mapa">
+		<img id="lemap">
+	</article><!-- mapa_inicio -->
 	
-</section><!-- noticia -->
+</section><!-- mapa -->
 
 <nav id="side">
 	<a data-article="home_menu">Inicio</a>
@@ -253,7 +250,7 @@
 					
 					//adding the google map
 					if(evento[x].ruta != "") {
-						eventosBuffer += '<a href="http://maps.googleapis.com/maps/api/staticmap?scale=2&size=640x640&path=weight:5%7Ccolor:0x000000%7Cenc:' + evento[x].ruta + '&sensor=true"><img src="http://maps.googleapis.com/maps/api/staticmap?size=480x320&path=weight:5%7Ccolor:0x000000%7Cenc:' + evento[x].ruta + '&sensor=true"/></a></li>';
+						eventosBuffer += '<a data-mapa="' + x + '"><img src="http://maps.googleapis.com/maps/api/staticmap?size=480x320&path=weight:5%7Ccolor:0x000000%7Cenc:' + evento[x].ruta + '&sensor=true"/></a></li>';
 					}
 
 					eventosBuffer += '<a data-evento="' + x + '" class="button">Agregar al calendario</a></li></div>';
@@ -280,6 +277,12 @@
 					window.plugins.calendar.createEvent(title,location,"",startDate,endDate,success,error);
 				}
 			},error);
+		});
+
+		$('*[data-mapa]').on('click', function() {
+			var i = $(this).attr('data-mapa');
+			$('#lemap').attr('src', 'http://maps.googleapis.com/maps/api/staticmap?scale=2&size=640x640&path=weight:5%7Ccolor:0x000000%7Cenc:' + evento[i].ruta + '&sensor=true');
+			load('mapa',0)
 		});
 	}
 

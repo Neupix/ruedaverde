@@ -58,7 +58,7 @@
 		</aside>
 	</article><!-- home_noticias -->
 
-	<article id="home_guias" data-title="Guias">
+	<article id="home_guias" data-title="Guías">
 			<div class="p0">
 				<img src="img/guias/guias.jpg">
 			</div>
@@ -196,11 +196,11 @@
 </section><!-- mapa -->
 
 <nav id="side">
-	<a data-article="home_menu">Inicio</a>
-	<a data-article="home_eventos">Eventos</a>
-	<a data-article="home_noticias">Noticias</a>
-	<a data-article="home_guias">Guías</a>
-	<a href="contacto@ruedaverde.org">Contáctanos</a>
+	<a data-article="home_menu"><li class="fa fa-home"></li> Inicio</a>
+	<a data-article="home_eventos"><li class="fa fa-calendar"></li> Eventos</a>
+	<a data-article="home_noticias"><li class="fa fa-bullhorn"></li> Noticias</a>
+	<a data-article="home_guias"><li class="fa fa-group"></li> Guías</a>
+	<a href="mailto:contacto@ruedaverde.org"><li class="fa fa-comment"></li> Contáctanos</a>
 </nav>
 
 <script type="text/javascript" src="phonegap.js"></script>
@@ -255,7 +255,7 @@
 
 					eventosBuffer += '<a data-evento="' + x + '" class="button">Agregar al calendario</a></li></div>';
 				}
-				$('#home_eventos').html(eventosBuffer + '<p class="note">Clic en un evento para agregarlo al calendario.</p>');
+				$('#home_eventos').html(eventosBuffer);
 				listenEventos();
 			}
 		});

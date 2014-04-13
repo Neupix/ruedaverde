@@ -4,4 +4,5 @@ background-size: cover;}
 .button{background:#f80;}
 
 #mapa article{overflow: scroll;height:100%;width:100%;}
+#mapa article::after{height:0;}
 #lemap{max-width: none;width:800px;height: 800px}

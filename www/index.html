@@ -1,365 +1,40 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Rueda Verde</title>
 
-	<link rel="stylesheet" href="lungo/lungo.css">
-	<link rel="stylesheet" href="lungo/lungo.icon.css">
-	<link rel="stylesheet" href="lungo/lungo.theme.css">
+	<link rel="stylesheet" href="ui/fontawesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="ui/ui.css">
+	<link rel="stylesheet" href="style.css">
 
-    <style>
-        body > section > header{background:#00ac4e;background:linear-gradient(#00ac4e,#009B46);-webkit-box-shadow:inset rgba(255,255,255,.2) 0 1px 0, inset 0 -1px #008039, 0 1px rgba(0,0,0,.1);-moz-box-shadow:inset rgba(255,255,255,.2) 0 1px 0, inset 0 -1px #008039, 0 1px rgba(0,0,0,.1);box-shadow:inset rgba(255,255,255,.2) 0 1px 0, inset 0 -1px #008039, 0 1px rgba(0,0,0,.1)}
-        body > section > header .title{text-shadow: 0 .1em #008039;}
-        section header > nav.on-right a, section header > nav.on-right button {text-shadow: 0 .1em #008039;}
-        section header > nav:not(.on-right) a, section header > nav:not(.on-right) button {color:#008039;text-shadow:0 0.1em #0ac45e;}
-        img{max-width: 100%}
-
-        .d6{width:50%;float:left;}
-        .c{clear:both;display:block;height: 0;width: 0;font-size:0;opacity: 0;}
-
-		#article_home{background:url(img/ui/homebg.jpg) no-repeat center;-webkit-background-size: cover;
-		background-size: cover;color:#fff;}		
-
-		#article_home li{background:#f80;border-bottom: 1px solid rgba(0,0,0,.1);text-shadow:rgba(0,0,0,.1) 0 -1px 0;}
-		#article_home li small{color:rgba(255,255,255,.75);}
-
-		h1{text-align: center;}
-		.logo{margin: 0 1em;display: inline-block;}
-
-		#facebookShare{background:#3B5998 !important}
-    </style>
+	<script src="js/jquery-2.1.0.min.js"></script>
 </head>
 <body>
 
-<section id="main_section" data-tansition="slide" data-pull="normal">
+<section id="home">
+	<header>
+		<div class="title">Rueda Verde</div>
 
-    <header data-title="Inicio">
-        <nav>
-            <a href="#" data-view-menu="options" data-icon="menu"></a>
-        </nav>
+		<nav class="left">
+			<a open-nav><i class="fa fa-bars"></i></a>
+		</nav>
+	</header>
 
-        <nav class="on-right">
-            <a href="mailto:contacto@ruedaverde.org" data-icon="comment"></a>
-        </nav>
+	<article id="home_menu">
+		<img src="img/ui/logo.png" class="logo" alt="">
 
-    </header>
+		<div>
+			asd
+		</div>
+	</article>
+</section>
 
-    <nav id="options" data-control="menu">
-        <a href="#" data-title="Inicio" data-view-article="article_home" data-icon="home" class="active">Inicio</a>
-        <a href="#" data-title="Eventos" data-view-article="article_eventos" data-icon="calendar" class="eventoCounter">Eventos </a>
-        <a href="#" data-title="Noticias" data-view-article="article_noticias" data-icon="bullhorn">Noticias</a>
-        <a href="#" data-title="Guías" data-view-article="article_guias" data-icon="group">Guías</a>
-    </nav>
+<nav id="side">
+	<a data-article="home_menu">Inicio</a>
+</nav>
 
-    <article id="article_home" class="active list scroll indented">
-
-		<h1>
-			<img src="img/ui/logo.png" alt="" class="logo">
-		</h1>
-
-            <ul>
-                <li data-icon="calendar" data-view-article="article_eventos" data-title="Eventos">
-                    <strong>Ver eventos</strong>
-                    <small id="homeEvento"></small>
-                </li>
-
-                <li data-icon="bullhorn" data-view-article="article_noticias" data-title="Noticias">
-                    <strong>Ver noticias</strong>
-                    <small id="homeNoticia"></small>
-                </li>
-
-                <li data-icon="group" data-view-article="article_guias" data-title="Guías">
-                    <strong>Conocer a los guías</strong>
-                </li>
-
-				<div class="d6">
-                <li data-icon="comment" data-view-article="article_guias" data-title="Guías">
-                    <strong>Comunícate</strong>
-                </li>
-                </div>
-
-				<div class="d6">
-                <li id="facebookShare" data-icon="facebook">
-                    <strong>Compartir</strong>
-                </li>
-                </div>
-
-            <div class="c">.</div>
-            </ul>
-		<br><br>
-    </article><!-- home -->
-
-    <article id="article_eventos" class="list indented scroll">
-    	<ul id="showEventos">
-            <li>
-                <strong>No hay eventos registrados</strong>
-                <small>Desplaza hacia abajo para actualizar</small>          
-            </li>  
-        </ul>
-    </article><!-- eventos -->
-
-    <article id="article_noticias" class="list indented scroll">
-    	<ul id="showNoticias">
-            <li>
-                <strong>No hay noticias registradas</strong>
-                <small>Desplaza hacia abajo para actualizar</small>
-            </li>
-        </ul>
-    </article><!-- noticias -->
-
-    <article id="article_guias" class="list indented scroll">
-
-        <ul>
-            <li class="big">
-                <img src="img/guias/guias.jpg">
-            </li>
-
-            <li>Los guías donan su tiempo a Rueda Verde, y trabajan en pro de tu seguridad. Conócelos.</li>
-
-            <li class="thumb big">
-                <img src="img/guias/andrea.jpg" />
-                <div>
-                    <strong>Andrea</strong>
-                    <small>Aquí puede ir algun texto.</small>
-                </div>
-            </li>
-
-            <li class="thumb big">
-                <img src="img/guias/luisfelipe.jpg" />
-                <div>
-                    <strong>Luis Felipe</strong>
-                    <small>Aquí puede ir algun texto.</small>
-                </div>
-            </li>
-
-            <li class="thumb big">
-                <img src="img/guias/julio.jpg" />
-                <div>
-                    <strong>Julio Morales</strong>
-                    <small>Aquí puede ir algun texto.</small>
-                </div>
-            </li>
-
-            <li class="thumb big">
-                <img src="img/guias/dania.jpg" />
-                <div>
-                    <strong>Dania</strong>
-                    <small>Aquí puede ir algun texto.</small>
-                </div>
-            </li>
-
-            <li class="thumb big">
-                <img src="img/guias/edd.jpg" />
-                <div>
-                    <strong>Edd</strong>
-                    <small>Aquí puede ir algun texto.</small>
-                </div>
-            </li>
-
-            <li class="thumb big">
-                <img src="img/guias/fatho.jpg" />
-                <div>
-                    <strong>Fatho</strong>
-                    <small>Aquí puede ir algun texto.</small>
-                </div>
-            </li>
-
-            <li class="thumb big">
-                <img src="img/guias/raquel.jpg" />
-                <div>
-                    <strong>Raquel</strong>
-                    <small>Aquí puede ir algun texto.</small>
-                </div>
-            </li>
-
-            <li class="thumb big">
-                <img src="img/guias/suzie.jpg" />
-                <div>
-                    <strong>Suzie</strong>
-                    <small>Aquí puede ir algun texto.</small>
-                </div>
-            </li>
-
-            <li class="thumb big">
-                <img src="img/guias/roberto.jpg" />
-                <div>
-                    <strong>Roberto</strong>
-                    <small>Aquí puede ir algun texto.</small>
-                </div>
-            </li>
-
-            <li class="thumb big">
-                <img src="img/guias/rudy.jpg" />
-                <div>
-                    <strong>Rudy</strong>
-                    <small>Aquí puede ir algun texto.</small>
-                </div>
-            </li>
-
-            <li class="thumb big">
-                <img src="img/guias/tannia.jpg" />
-                <div>
-                    <strong>Tannia</strong>
-                    <small>Aquí puede ir algun texto.</small>
-                </div>
-            </li>
-
-            <li class="thumb big">
-                <img src="img/guias/gustavo.jpg" />
-                <div>
-                    <strong>Gustavo</strong>
-                    <small>Aquí puede ir algun texto.</small>
-                </div>
-            </li>
-
-            <li class="thumb big">
-                <img src="img/guias/cesar.jpg" />
-                <div>
-                    <strong>Cesar</strong>
-                    <small>Aquí puede ir algun texto.</small>
-                </div>
-            </li>
-
-            <li class="thumb big">
-                <img src="img/guias/gesu.jpg" />
-                <div>
-                    <strong>Gesu</strong>
-                    <small>Aquí puede ir algun texto.</small>
-                </div>
-            </li>
-        <br><br>
-        </ul>
-
-    </article><!-- guias -->
-
-</section><!-- main-section-->
-
-<script src="lungo/quo.js"></script>
-<script src="lungo/lungo.js"></script>
-<script type="text/javascript" src="phonegap.js"></script>
-<script>
-//document.addEventListener("deviceready", onDeviceReady, false);
-//function onDeviceReady() {
-
-    Lungo.init({
-
-    });
-
-	//this will make the back button work
-	document.addEventListener("backbutton", goBack, false);
-
-	function goBack() {
-		Lungo.Router.article("main_section", "article_home");
-	}
-
-    var pull_eventos = new Lungo.Element.Pull('#article_eventos', {
-        onPull: "Desliza hacia abajo para actualizar",      //Text on pulling
-        onRelease: "Suelta para actualizar",//Text on releasing
-        onRefresh: "Actualizando...",          //Text on refreshing
-        callback: function() {               //Action on refresh
-            updateCalendar();
-            
-        }
-    });
-
-    var pull_noticias = new Lungo.Element.Pull('#article_noticias', {
-        onPull: "Desliza hacia abajo para actualizar",      //Text on pulling
-        onRelease: "Suelta para actualizar",//Text on releasing
-        onRefresh: "Actualizando...",          //Text on refreshing
-        callback: function() {               //Action on refresh
-            updateNoticias();
-            
-        }
-    });
-
-    var calendar = "";
-    var ev = [];
-    var updateCalendar = function() {
-        var getCalendar = $$.json('http://javierbyte.com/app/ruedaverde/api/get_recent_posts/', {post_type:"evento"},
-            function(){
-                calendar = JSON.parse(getCalendar.response).posts;
-                var bufferEventos = "";
-                for(i=0;i<calendar.length;i++) {
-                    ev[i] = new Object();
-                    ev[i].year = parseInt(calendar[i].custom_fields.fecha[0].slice(0,4),10);
-                    ev[i].day = parseInt(calendar[i].custom_fields.fecha[0].slice(6,8),10);
-                    ev[i].month = parseInt(calendar[i].custom_fields.fecha[0].slice(4,6),10);
-                    ev[i].hour = parseInt(calendar[i].custom_fields.hora[0],10);
-                    ev[i].description = calendar[i].custom_fields.descripcion[0];
-                    ev[i].place = calendar[i].custom_fields.lugar[0];
-                    ev[i].title =  calendar[i].title;
-                    ev[i].route = calendar[i].custom_fields.ruta[0];
-                    ev[i].fecha = ev[i].day + '/' + ev[i].month + '/' + ev[i].year;
-
-                    bufferEventos += '<li class="evento"><a href="#" data-evid="' + i + '" class="addMap button on-right" data-label="Agregar al calendario"><abbr>Agregar al calendario</abbr></a><strong class="text bold">' + ev[i].title + '</strong><span class="text tiny">' + ev[i].fecha + ' - ' + ev[i].hour + ':00</span><small>' + ev[i].description + '</small>';
-
-                    //adding the google map
-                    if(ev[i].route != "") {
-                        bufferEventos += '<a href="http://maps.googleapis.com/maps/api/staticmap?scale=2&size=640x640&path=weight:5%7Ccolor:0x000000%7Cenc:' + ev[i].route + '&sensor=true"><img src="http://maps.googleapis.com/maps/api/staticmap?size=480x320&path=weight:5%7Ccolor:0x000000%7Cenc:' + ev[i].route + '&sensor=true"/></a></li>';
-                    } else {
-                        bufferEventos += '</li>';
-                    }
-                }
-
-                //setting the counter
-                Lungo.Element.count(".eventoCounter", calendar.length);
-
-                //adding to the home
-                $$('#homeEvento').html(' ' + ev[0].title + ', ' + ev[0].fecha);
-
-                $$('#showEventos').html(bufferEventos);
-                pull_eventos.hide();
-            }
-        );
-    };
-
-    var updateNoticias = function() {
-        var noticias = "";
-        var getNoticias = $$.json('http://javierbyte.com/app/ruedaverde/api/get_recent_posts/', {post_type:"post"},
-            function(){
-                noticias = JSON.parse(getNoticias.response).posts;
-                
-                var bufferNoticias = "";          
-                for(i=0;i<noticias.length;i++) {
-                    bufferNoticias += '<li><strong class="text bold">' + noticias[i].title + '</strong><span class="text tiny">' + noticias[i].custom_fields.texto[0]+ '</span><br><img src="' + noticias[i].thumbnail + '">';
-                }
-                //adding to home
-                $$('#homeNoticia').html(noticias[0].title);
-
-                $$('#showNoticias').html(bufferNoticias);
-                pull_noticias.hide();
-            }
-        );
-    };
-
-    $$('.addMap').tap(function(){
-        var i = $$(this).data('evid');
-        var startDate = new Date(ev[i].year,ev[i].month-1,ev[i].day,ev[i].hour,0,0,0,0); // beware: month 0 = january, 11 = december
-        var endDate = new Date(ev[i].year,ev[i].month-1,ev[i].day,ev[i].hour+2,0,0,0,0);
-        var title = ev[i].title;
-        var location = ev[i].place;
-        var notes = "";
-        var success = function(message) { alert("Evento agregado con éxito a tu calendario, ¡te esperamos!"); };
-        var error = function(message) { alert("Error: " + message); };
-
-        window.plugins.calendar.findEvent(title,location,notes,startDate,endDate,function(message) {
-            if(message.length) {
-                alert('Ya agregaste el evento al calendario, ¡gracias!');
-            } else {
-                window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,success,error);
-            }
-        },error);
-
-    });
-
-    $$('#facebookShare').tap(function(){
-        window.plugins.socialsharing.shareViaFacebook('Prueba la nueva aplicación de rueda verde en http://www.ruedaverde.org', null, null, console.log('share ok'), function(errormsg){alert(errormsg)})
-    });
-
-    updateCalendar();
-    updateNoticias();
-//}
-</script>
+<script src="js/app.js"></script>
 </body>
 </html>

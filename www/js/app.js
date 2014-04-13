@@ -44,6 +44,7 @@ function closeSide() {
 }
 
 function back() {
+	alert('backintime');
 	history.pop();
 	if (!history[history.length-1]) exit();
 	load(history[history.length-1][0], history[history.length-1][1]);

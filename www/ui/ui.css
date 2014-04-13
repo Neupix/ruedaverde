@@ -30,6 +30,7 @@ article::after{content:" ";display: block;clear: both;height: 1rem;} /*somewhat 
 article h1{font-size: 1rem}
 article div{margin: 1rem;padding: 1rem;background: #fff;box-shadow:rgba(0,0,0,.1) 0 1px 0}
 article aside{margin: 1rem}
+article aside::after{content:" ";display: block;clear: both;height: 1rem;}
 
 article h1{line-height: 1;margin-bottom: .25rem;}
 article form{margin: 1rem;}
@@ -60,6 +61,8 @@ footer{position: absolute;bottom: 0;padding: 1rem;width: 100%;}
 
 .thumb.big img{height: 128px;width: 128px;}
 .thumb.big aside{left: 128px;}
+
+.post img{margin-bottom: 1rem}
 
 .p0{padding: 0;}
 

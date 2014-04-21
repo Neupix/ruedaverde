@@ -1,3 +1,5 @@
+window.addEventListener('load', function () {FastClick.attach(document.body);}, false);
+
 /* caching vars */
 var $body = $('body');
 

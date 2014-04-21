@@ -7,7 +7,8 @@ a{text-decoration: none}
 img{display: block;border: 0;max-width: 100%}
 
 form{}
-textarea,input{font-size:inherit;line-height: 1;padding: .618rem;display: block;border: 0;width: 100%;margin-bottom: 1rem;background: rgba(0,0,0,.25);color:#fff;box-shadow:inset rgba(0,0,0,.1) 0 1px 0, rgba(255,255,255,.2) 0 1px 0}
+textarea,input:not([type="range"]){font-size:inherit;line-height: 1;padding: .618rem;display: block;border: 0;width: 100%;margin-bottom: 1rem;background: rgba(0,0,0,.25);color:#fff;box-shadow:inset rgba(0,0,0,.1) 0 1px 0, rgba(255,255,255,.2) 0 1px 0}
+input[type="range"]{display: block;width: 100%;}
 
 /* common components */
 header{width: 100%;line-height: 3rem;font-size:1.25rem;text-align: center;color:#fff}
@@ -51,11 +52,12 @@ nav#side .fa{width:1.5rem}
 footer{position: absolute;bottom: 0;padding: 1rem;width: 100%}
 
 /* components */
-.button{font-size: 1rem;margin: 1rem;padding: 1rem;background: #00ac4e;color:#fff;border: 0;display: block;text-align: left;line-height: 1rem;text-shadow:rgba(0,0,0,.1) 0 -1px 0;box-shadow:rgba(0,0,0,.1) 0 1px 0;overflow: hidden}
+.button{font-size: 1rem;margin: 1rem;padding: 1rem;background: #00ac4e;color:#fff;border: 0;display: block;text-align: left;line-height: 1rem;text-shadow:rgba(0,0,0,.1) 0 -1px 0;box-shadow:rgba(0,0,0,.1) 0 1px 0;overflow: hidden;}
 .button small{display: block;padding-top: .25rem;line-height: 1}
 .button .fa{width: 1.5rem;font-size: 1.25rem;line-height: 1rem;text-align: center;left: -.25rem}
 
-div > .button{font-size: inherit;margin: 1rem 0 0;padding: .5rem 1rem;text-align: center}
+div > .button, .button_small{font-size: inherit;margin: 1rem 0 0;padding: .5rem 1rem;text-align: center}
+.button_small{margin: 0;}
 
 .thumb{padding: 0;overflow: hidden}
 .thumb img{display: block;height: 72px;width:72px}

@@ -40,7 +40,7 @@
 
 		<aside class="columns">
 			<aside class="d6">
-				<a class="button"><i class="fa fa-facebook"></i> Compartir</a>
+				<a class="button" onclick="share('https://play.google.com/store/apps/details?id=com.neupix.ruedaverde')"><i class="fa fa-facebook"></i> Compartir</a>
 			</aside>
 	
 			<aside class="d6">
@@ -225,6 +225,10 @@
 <script src="js/app.js"></script>
 
 <script>
+
+	function share(url) {
+		window.plugins.socialsharing.shareViaFacebook('Message via Facebook', null, url, console.log('share ok'), function(errormsg){alert(errormsg)})
+	}
 
 	var updateNoticias = function() {
 		var noticiasBuffer = "";

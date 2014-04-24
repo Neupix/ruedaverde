@@ -42,7 +42,7 @@ function load(section,article) {
 		$('.fade').removeClass('active fade');
 	},300);
 	
-	closeSide();
+	$body.removeClass('showSide');
 }
 
 function closeSide() {

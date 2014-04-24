@@ -41,6 +41,8 @@ function load(section,article) {
 	var moving = setTimeout(function() {
 		$('.fade').removeClass('active fade');
 	},300);
+	
+	closeSide();
 }
 
 function closeSide() {

@@ -14,6 +14,8 @@ $fade.on('click', closeSide);
 /* primitive functions */
 
 function load(section,article) {
+	closeSide();
+
 	window.scrollTo(0,0); // going to top
 
 	if(section && section != currentSection) {
@@ -41,12 +43,11 @@ function load(section,article) {
 	var moving = setTimeout(function() {
 		$('.fade').removeClass('active fade');
 	},300);
-	
-	$body.removeClass('showSide');
 }
 
 function closeSide() {
 	$body.removeClass('showSide');
+	console.log('sideClosed');
 }
 
 function back() {

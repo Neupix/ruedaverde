@@ -47,7 +47,6 @@ function load(section,article) {
 
 function closeSide() {
 	$body.removeClass('showSide');
-	console.log('sideClosed');
 }
 
 function back() {

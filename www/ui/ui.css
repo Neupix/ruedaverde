@@ -3,7 +3,7 @@
 
 body,textarea,input, button{font: 1rem/1.5 "Open Sans", sans-serif}
 body{background: #eaeaea;width:100%;overflow-x:hidden}
-a{text-decoration: none}
+a{text-decoration: none;outline:0;}
 img{display: block;border: 0;max-width: 100%}
 
 form{}

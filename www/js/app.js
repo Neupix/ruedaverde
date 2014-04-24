@@ -1,7 +1,7 @@
 window.addEventListener('load', function () {FastClick.attach(document.body);}, false);
 
 /* caching vars */
-var $body = $('body');
+var $body = $('#body');
 
 $body.append('<div id="fade"></div>');
 var $fade = $('#fade');
